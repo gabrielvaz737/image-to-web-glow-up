@@ -53,7 +53,7 @@ export function Hero() {
           <div className="bg-gradient-gold p-1 rounded-2xl max-w-4xl mx-auto my-6">
             <div className="bg-background rounded-xl p-6">
               <p className="text-lg md:text-2xl font-bold text-foreground">
-                🎯 Quem já decifrou o INEP entrega tudo mastigado pra você — chegue na PND sabendo exatamente o que vai cair
+                🎯 Quem já decifrou o INEP entrega tudo mastigado pra você chegue na PND sabendo exatamente o que vai cair
               </p>
             </div>
           </div>
