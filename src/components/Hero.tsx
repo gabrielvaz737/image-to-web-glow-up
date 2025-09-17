@@ -49,6 +49,15 @@ export function Hero() {
             </span>
           </h1>
 
+          {/* Impact Headline */}
+          <div className="bg-gradient-gold p-1 rounded-2xl max-w-4xl mx-auto my-6">
+            <div className="bg-background rounded-xl p-6">
+              <p className="text-lg md:text-2xl font-bold text-foreground">
+                🎯 Quem já decifrou o INEP entrega tudo mastigado pra você — chegue na PND sabendo exatamente o que vai cair
+              </p>
+            </div>
+          </div>
+
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
             Conquiste sua aprovação no concurso dos seus sonhos com a preparação mais completa do Brasil
