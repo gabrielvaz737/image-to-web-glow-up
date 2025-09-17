@@ -1,138 +1,179 @@
-import { Check, Sparkles, TrendingUp, Users } from "lucide-react";
+import { Check, X, Flame, Users, Target, TrendingUp, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const plans = [
   {
-    name: "Básico",
-    price: "197",
-    originalPrice: "397",
-    discount: "50% OFF",
+    name: "PND - Guia Essencial",
+    subtitle: "Você recebe:",
+    price: "10,90",
+    originalPrice: "49,90",
+    badge: "Oferta Básica",
+    badgeColor: "bg-destructive",
     features: [
-      "Apostilas digitais completas",
-      "500+ questões comentadas",
-      "10 simulados online",
-      "Grupo de estudos no WhatsApp",
-      "Certificado de conclusão",
+      { text: "+350 Questões Comentadas da PND", included: true },
+      { text: "Foco total nos temas mais cobrados", included: true },
+      { text: "Bônus: 3 Simulados ENADE: 120 Questões", included: true },
+      { text: "Bônus: Combo ECA", included: false },
+      { text: "Bônus: Combo LDB", included: false },
+      { text: "Bônus: Simulado INEP", included: false },
+      { text: "Bônus: Mapas Mentais: Educação", included: false },
+      { text: "Bônus: Técnicas de Estudo", included: false },
     ],
     popular: false,
+    cta: "ESSA SERVE PARA MIM!",
+    payment: "Pagamento único, acesso imediato",
+    buttonVariant: "success" as const,
   },
   {
-    name: "Premium",
-    price: "297",
-    originalPrice: "597",
-    discount: "50% OFF",
+    name: "PND - Combo Premium +7 BÔNUS",
+    subtitle: "Você leva tudo isso:",
+    price: "22,90",
+    originalPrice: "129,70",
+    badge: "Oferta Premium",
+    badgeColor: "bg-gradient-gold",
+    discount: "86% OFF",
     features: [
-      "Tudo do plano Básico",
-      "Mentoria individual semanal",
-      "Correção de redações ilimitada",
-      "Aulas ao vivo semanais",
-      "Suporte prioritário 24/7",
-      "Material impresso (frete grátis)",
-      "Garantia de aprovação*",
+      { text: "+450 Questões Comentadas e Gabaritadas", included: true },
+      { text: "Foco total nos temas mais cobrados", included: true },
+      { text: "Bônus: Combo ECA Comentado", included: true },
+      { text: "Bônus: 350 Questões Pensadores- Educação", included: true },
+      { text: "Bônus: 3 Simulados ENADE: 120 Questões", included: true },
+      { text: "Bônus: Mapas Mentais: Educação", included: true },
+      { text: "Bônus: Simulado INEP Realista", included: true },
+      { text: "Bônus: Combo LDB Essencial", included: true },
+      { text: "Bônus: Técnicas de Estudo", included: true },
     ],
     popular: true,
-  },
-  {
-    name: "VIP",
-    price: "497",
-    originalPrice: "997",
-    discount: "50% OFF",
-    features: [
-      "Tudo do plano Premium",
-      "Coaching personalizado",
-      "Plano de estudos individual",
-      "Acompanhamento psicológico",
-      "Acesso vitalício",
-      "2 mentorias por semana",
-      "Preparação para prova oral",
-      "Bônus: Curso de oratória",
-    ],
-    popular: false,
+    cta: "QUERO A PREMIUM AGORA!",
+    payment: "Acesso completo imediato",
+    buttonVariant: "destructive" as const,
   },
 ];
 
 export function Pricing() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-navy-dark text-white">
       <div className="container mx-auto px-4">
+        {/* Header with statistics */}
         <div className="text-center mb-12">
-          <Badge className="mb-4 bg-destructive text-destructive-foreground">
-            <Sparkles className="w-4 h-4 mr-1" />
-            OFERTA POR TEMPO LIMITADO
-          </Badge>
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-navy-dark mb-4">
-            Escolha seu
-            <span className="text-transparent bg-clip-text bg-gradient-gold"> Plano de Estudos</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Investimento único com garantia de satisfação de 30 dias
-          </p>
+          <div className="flex items-center justify-center mb-8">
+            <Flame className="w-10 h-10 text-gold animate-pulse" />
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-8 mb-12">
+            <div className="flex items-center gap-2">
+              <Users className="w-5 h-5 text-gold" />
+              <span className="text-lg">
+                <strong className="text-gold">4.587</strong> professores já garantiram
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Target className="w-5 h-5 text-destructive" />
+              <span className="text-lg">
+                <strong className="text-destructive">97%</strong> taxa de aprovação
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <TrendingUp className="w-5 h-5 text-gold" />
+              <span className="text-lg">
+                <strong className="text-gold">10x</strong> mais chances de acerto na PND
+              </span>
+            </div>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {/* Pricing Cards */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`relative p-8 ${
+              className={`relative p-8 bg-card/10 backdrop-blur border-2 ${
                 plan.popular
-                  ? "border-gold shadow-2xl scale-105 border-2"
-                  : "border-gold/20"
+                  ? "border-gold shadow-2xl"
+                  : "border-white/20"
               } hover:shadow-xl transition-all duration-300`}
             >
-              {plan.popular && (
-                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-gold text-navy-dark font-bold">
-                  <TrendingUp className="w-4 h-4 mr-1" />
-                  MAIS VENDIDO
+              {/* Badge */}
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <Badge className={`${plan.badgeColor} text-white px-4 py-2 text-sm font-bold`}>
+                  {plan.badge}
                 </Badge>
-              )}
-
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-navy-dark mb-2">{plan.name}</h3>
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <span className="text-muted-foreground line-through text-lg">
-                    R$ {plan.originalPrice}
-                  </span>
-                  <Badge variant="destructive">{plan.discount}</Badge>
-                </div>
-                <div className="flex items-baseline justify-center">
-                  <span className="text-lg">R$</span>
-                  <span className="text-5xl font-bold text-navy-dark">{plan.price}</span>
-                  <span className="text-muted-foreground ml-2">/único</span>
-                </div>
               </div>
 
+              {plan.popular && (
+                <div className="absolute -top-12 right-4">
+                  <Badge className="bg-gradient-to-r from-purple-600 to-purple-400 text-white px-3 py-1 text-xs font-bold">
+                    MAIS VENDIDO
+                  </Badge>
+                </div>
+              )}
+
+              {/* Plan Name */}
+              <div className="text-center mb-6 mt-4">
+                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                <p className="text-white/80 text-sm">{plan.subtitle}</p>
+              </div>
+
+              {/* Features */}
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-success shrink-0 mt-0.5" />
-                    <span className="text-sm text-muted-foreground">{feature}</span>
+                    {feature.included ? (
+                      <Check className="w-5 h-5 text-success shrink-0 mt-0.5" />
+                    ) : (
+                      <X className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                    )}
+                    <span className={`text-sm ${feature.included ? 'text-white' : 'text-white/50 line-through'}`}>
+                      {feature.text}
+                    </span>
                   </li>
                 ))}
               </ul>
 
+              {/* Pricing */}
+              <div className="text-center mb-6">
+                <div className="flex items-center justify-center gap-3 mb-2">
+                  <span className="text-white/50 line-through text-lg">
+                    R${plan.originalPrice}
+                  </span>
+                  {plan.discount && (
+                    <Badge className="bg-purple-500 text-white font-bold">
+                      {plan.discount}
+                    </Badge>
+                  )}
+                </div>
+                <div className="flex items-baseline justify-center">
+                  <span className="text-xl text-white">R$</span>
+                  <span className="text-5xl font-bold text-white">{plan.price}</span>
+                </div>
+                <p className="text-xs text-white/60 mt-2">{plan.payment}</p>
+              </div>
+
+              {/* CTA Button */}
               <Button
                 className="w-full"
                 size="lg"
-                variant={plan.popular ? "gold" : "outline"}
+                variant={plan.buttonVariant}
               >
-                <Users className="mr-2" />
-                GARANTIR MINHA VAGA
+                {plan.cta}
               </Button>
-
-              {plan.popular && (
-                <p className="text-center text-xs text-muted-foreground mt-4">
-                  👥 23 pessoas compraram nas últimas 2 horas
-                </p>
-              )}
             </Card>
           ))}
         </div>
 
+        {/* Footer Timer */}
         <div className="text-center mt-12">
-          <p className="text-sm text-muted-foreground">
-            * Garantia de aprovação: caso não seja aprovado em 12 meses, devolvemos 100% do valor investido
+          <div className="flex items-center justify-center gap-2 text-lg">
+            <Clock className="w-5 h-5 text-gold" />
+            <span className="text-white">
+              <strong className="text-gold">Tempo restante:</strong> 9:08
+            </span>
+          </div>
+          <p className="text-sm text-white/60 mt-4 flex items-center justify-center gap-2">
+            <span className="text-blue-400">🔒</span>
+            Compra 100% segura. Ou você ama, ou devolvemos seu dinheiro.
           </p>
         </div>
       </div>
