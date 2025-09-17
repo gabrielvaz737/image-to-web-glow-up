@@ -1,6 +1,16 @@
 import { FileText, Video, Headphones, PenTool, BookMarked, Brain } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+
+// Import apostila images
+import apostila1 from "@/assets/apostila-1.jpeg";
+import apostila2 from "@/assets/apostila-2.jpeg";
 
 const materials = [
   {
@@ -47,6 +57,19 @@ const materials = [
   },
 ];
 
+const apostilas = [
+  { 
+    src: apostila1, 
+    title: "Conhecimentos Didático-Pedagógicos",
+    description: "Apostila completa com teorias educacionais"
+  },
+  { 
+    src: apostila2, 
+    title: "Filosofia da Educação",
+    description: "Material aprofundado em filosofia educacional"
+  },
+];
+
 export function StudyMaterials() {
   return (
     <section className="py-20 bg-muted/30">
@@ -61,6 +84,47 @@ export function StudyMaterials() {
           </p>
         </div>
 
+        {/* Carousel de Apostilas */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold text-navy-dark text-center mb-6">
+            Nossas Apostilas Exclusivas
+          </h3>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 2500,
+                stopOnInteraction: false,
+                stopOnMouseEnter: false,
+              }),
+            ]}
+            className="w-full max-w-5xl mx-auto"
+          >
+            <CarouselContent className="-ml-4">
+              {[...apostilas, ...apostilas, ...apostilas].map((apostila, index) => (
+                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="p-4 hover:shadow-xl transition-all duration-300 border-gold/10 hover:border-gold/30">
+                    <div className="aspect-[3/4] relative overflow-hidden rounded-lg mb-4">
+                      <img
+                        src={apostila.src}
+                        alt={apostila.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <h4 className="font-semibold text-navy-dark mb-1">{apostila.title}</h4>
+                    <p className="text-sm text-muted-foreground">{apostila.description}</p>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
+
+        {/* Grid de Materiais */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {materials.map((material, index) => (
             <Card
