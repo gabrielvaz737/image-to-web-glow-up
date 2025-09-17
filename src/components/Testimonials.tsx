@@ -1,6 +1,19 @@
 import { Star, Quote } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+
+// Import testimonial images
+import testimonialFeedback1 from "@/assets/testimonial-feedback-1.webp";
+import testimonialFeedback2 from "@/assets/testimonial-feedback-2.webp";
+import testimonialChat1 from "@/assets/testimonial-chat-1.png";
+import testimonialChat2 from "@/assets/testimonial-chat-2.png";
+import testimonialChat3 from "@/assets/testimonial-chat-3.png";
 
 const testimonials = [
   {
@@ -47,6 +60,14 @@ const testimonials = [
   },
 ];
 
+const testimonialImages = [
+  testimonialFeedback1,
+  testimonialFeedback2,
+  testimonialChat1,
+  testimonialChat2,
+  testimonialChat3,
+];
+
 export function Testimonials() {
   return (
     <section className="py-20 bg-muted/30">
@@ -61,36 +82,83 @@ export function Testimonials() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <Card
-              key={index}
-              className="p-6 hover:shadow-xl transition-all duration-300 border-gold/10 hover:border-gold/30 relative"
-            >
-              <Quote className="absolute top-4 right-4 w-8 h-8 text-gold/20" />
-              
-              <div className="flex items-center gap-4 mb-4">
-                <Avatar className="h-12 w-12 ring-2 ring-gold/20">
-                  <AvatarFallback className="bg-gradient-gold text-white font-semibold">
-                    {testimonial.initials}
-                  </AvatarFallback>
-                </Avatar>
-                <div>
-                  <h3 className="font-semibold text-navy-dark">{testimonial.name}</h3>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                </div>
-              </div>
-
-              <div className="flex gap-1 mb-3">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-gold text-gold" />
-                ))}
-              </div>
-
-              <p className="text-muted-foreground leading-relaxed">{testimonial.content}</p>
-            </Card>
-          ))}
+        {/* Carousel de Imagens de Depoimentos */}
+        <div className="mb-12">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+                stopOnInteraction: false,
+                stopOnMouseEnter: false,
+              }),
+            ]}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {[...testimonialImages, ...testimonialImages].map((image, index) => (
+                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <img
+                      src={image}
+                      alt={`Depoimento ${(index % testimonialImages.length) + 1}`}
+                      className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
+
+        {/* Carousel de Cards de Depoimentos */}
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 4000,
+              stopOnInteraction: false,
+              stopOnMouseEnter: false,
+            }),
+          ]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <Card className="p-6 hover:shadow-xl transition-all duration-300 border-gold/10 hover:border-gold/30 relative h-full">
+                  <Quote className="absolute top-4 right-4 w-8 h-8 text-gold/20" />
+                  
+                  <div className="flex items-center gap-4 mb-4">
+                    <Avatar className="h-12 w-12 ring-2 ring-gold/20">
+                      <AvatarFallback className="bg-gradient-gold text-white font-semibold">
+                        {testimonial.initials}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <h3 className="font-semibold text-navy-dark">{testimonial.name}</h3>
+                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-1 mb-3">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-gold text-gold" />
+                    ))}
+                  </div>
+
+                  <p className="text-muted-foreground leading-relaxed">{testimonial.content}</p>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );
