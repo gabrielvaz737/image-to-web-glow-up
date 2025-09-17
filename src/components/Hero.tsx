@@ -60,7 +60,7 @@ export function Hero() {
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Conquiste sua aprovação no concurso dos seus sonhos com a preparação mais completa do Brasil
+            E se você pudesse estudar com um material que antecipa com precisão o estilo do INEP e te prepara para acertar exatamente o que será cobrado na Prova Nacional Docente?
           </p>
 
           {/* Stats */}
