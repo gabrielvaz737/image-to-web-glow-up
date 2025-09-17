@@ -53,8 +53,17 @@ const plans = [
 ];
 
 export function Pricing() {
+  const handlePurchase = (planName: string) => {
+    // Aqui você pode adicionar integração com gateway de pagamento
+    // Por enquanto, vamos simular abrindo um link externo
+    const whatsappNumber = '5511999999999'; // Substitua pelo número real
+    const message = `Olá! Tenho interesse no plano ${planName} da Conquista Concursos.`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
-    <section className="py-20 bg-navy-dark text-white">
+    <section id="pricing" className="py-20 bg-navy-dark text-white">
       <div className="container mx-auto px-4">
         {/* Header with statistics */}
         <div className="text-center mb-12">
@@ -156,6 +165,7 @@ export function Pricing() {
                 className="w-full"
                 size="lg"
                 variant={plan.buttonVariant}
+                onClick={() => handlePurchase(plan.name)}
               >
                 {plan.cta}
               </Button>

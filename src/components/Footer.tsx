@@ -4,6 +4,27 @@ import { Separator } from "@/components/ui/separator";
 import logo from "@/assets/logo-conquista.jpeg";
 
 export function Footer() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const openWhatsApp = () => {
+    const whatsappNumber = '5511999999999'; // Substitua pelo número real
+    const message = 'Olá! Gostaria de mais informações sobre os cursos da Conquista Concursos.';
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+  };
+
+  const openSocialMedia = (platform: string) => {
+    const urls: Record<string, string> = {
+      instagram: 'https://instagram.com/conquistaconcursos',
+      facebook: 'https://facebook.com/conquistaconcursos',
+      youtube: 'https://youtube.com/@conquistaconcursos'
+    };
+    window.open(urls[platform], '_blank');
+  };
   return (
     <footer className="bg-navy-dark text-white">
       <div className="container mx-auto px-4 py-12">
@@ -21,13 +42,28 @@ export function Footer() {
               Há mais de 12 anos transformando sonhos em aprovações. Sua jornada rumo ao serviço público começa aqui.
             </p>
             <div className="flex gap-3">
-              <Button size="icon" variant="ghost" className="hover:bg-gold/20">
+              <Button 
+                size="icon" 
+                variant="ghost" 
+                className="hover:bg-gold/20"
+                onClick={() => openSocialMedia('instagram')}
+              >
                 <Instagram className="w-5 h-5" />
               </Button>
-              <Button size="icon" variant="ghost" className="hover:bg-gold/20">
+              <Button 
+                size="icon" 
+                variant="ghost" 
+                className="hover:bg-gold/20"
+                onClick={() => openSocialMedia('facebook')}
+              >
                 <Facebook className="w-5 h-5" />
               </Button>
-              <Button size="icon" variant="ghost" className="hover:bg-gold/20">
+              <Button 
+                size="icon" 
+                variant="ghost" 
+                className="hover:bg-gold/20"
+                onClick={() => openSocialMedia('youtube')}
+              >
                 <Youtube className="w-5 h-5" />
               </Button>
             </div>
@@ -37,11 +73,11 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-gold">Links Rápidos</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-gold transition-colors">Sobre Nós</a></li>
-              <li><a href="#" className="hover:text-gold transition-colors">Nossos Cursos</a></li>
-              <li><a href="#" className="hover:text-gold transition-colors">Depoimentos</a></li>
-              <li><a href="#" className="hover:text-gold transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-gold transition-colors">Área do Aluno</a></li>
+              <li><a href="#benefits" onClick={(e) => { e.preventDefault(); scrollToSection('benefits'); }} className="hover:text-gold transition-colors cursor-pointer">Sobre Nós</a></li>
+              <li><a href="#materials" onClick={(e) => { e.preventDefault(); scrollToSection('materials'); }} className="hover:text-gold transition-colors cursor-pointer">Nossos Cursos</a></li>
+              <li><a href="#testimonials" onClick={(e) => { e.preventDefault(); scrollToSection('testimonials'); }} className="hover:text-gold transition-colors cursor-pointer">Depoimentos</a></li>
+              <li><a href="#pricing" onClick={(e) => { e.preventDefault(); scrollToSection('pricing'); }} className="hover:text-gold transition-colors cursor-pointer">Planos</a></li>
+              <li><a href="#faq" onClick={(e) => { e.preventDefault(); scrollToSection('faq'); }} className="hover:text-gold transition-colors cursor-pointer">FAQ</a></li>
             </ul>
           </div>
 
@@ -61,11 +97,11 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-gold">Contato</h4>
             <ul className="space-y-3 text-sm text-gray-400">
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2 cursor-pointer hover:text-gold transition-colors" onClick={() => window.location.href = 'mailto:contato@conquistaconcursos.com.br'}>
                 <Mail className="w-4 h-4 text-gold" />
                 contato@conquistaconcursos.com.br
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2 cursor-pointer hover:text-gold transition-colors" onClick={openWhatsApp}>
                 <Phone className="w-4 h-4 text-gold" />
                 (11) 4200-1234
               </li>

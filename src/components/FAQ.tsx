@@ -43,7 +43,7 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section className="py-20 bg-background">
+    <section id="faq" className="py-20 bg-background">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-gold mb-4">

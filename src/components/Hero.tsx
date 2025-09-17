@@ -5,6 +5,16 @@ import { CountdownTimer } from "./CountdownTimer";
 import logo from "@/assets/logo-conquista.jpeg";
 
 export function Hero() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleCTAClick = () => {
+    scrollToSection('pricing');
+  };
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-radial">
       {/* Background decoration */}
@@ -66,13 +76,23 @@ export function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" variant="gold" className="text-lg px-8 py-6">
+            <Button 
+              size="lg" 
+              variant="gold" 
+              className="text-lg px-8 py-6"
+              onClick={handleCTAClick}
+            >
               <Trophy className="mr-2" />
               GARANTIR MINHA VAGA
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-lg px-8 py-6 border-2"
+              onClick={() => scrollToSection('testimonials')}
+            >
               <Calendar className="mr-2" />
-              VER CRONOGRAMA
+              VER DEPOIMENTOS
             </Button>
           </div>
 
