@@ -110,19 +110,19 @@ export function Hero() {
             <div className="grid md:grid-cols-2 gap-4 mb-8 max-w-2xl mx-auto">
               <div className="flex items-start gap-3">
                 <BookOpen className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
-                <span className="text-foreground font-medium">Apostila completa e atualizada</span>
+                <span className="text-white font-semibold">Apostila completa e atualizada</span>
               </div>
               <div className="flex items-start gap-3">
                 <Target className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
-                <span className="text-foreground font-medium">Questões comentadas estilo INEP</span>
+                <span className="text-white font-semibold">Questões comentadas estilo INEP</span>
               </div>
               <div className="flex items-start gap-3">
                 <Trophy className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
-                <span className="text-foreground font-medium">Simulados exclusivos</span>
+                <span className="text-white font-semibold">Simulados exclusivos</span>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
-                <span className="text-foreground font-medium">Acesso imediato no e-mail</span>
+                <span className="text-white font-semibold">Acesso imediato no e-mail</span>
               </div>
             </div>
 
