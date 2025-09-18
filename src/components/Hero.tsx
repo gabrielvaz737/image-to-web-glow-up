@@ -1,8 +1,9 @@
-import { Check, Trophy, Calendar, Users } from "lucide-react";
+import { Check, Trophy, Calendar, Users, BookOpen, Target, Clock, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CountdownTimer } from "./CountdownTimer";
 import logo from "@/assets/logo-conquista.jpeg";
+import apostilaMockup from "@/assets/apostila-mockup.png";
 
 export function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -62,6 +63,62 @@ export function Hero() {
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
             E se você pudesse estudar com um material que antecipa com precisão o estilo do INEP e te prepara para acertar exatamente o que será cobrado na Prova Nacional Docente?
           </p>
+
+          {/* Special Offer Section */}
+          <div className="bg-gradient-to-b from-gold/5 to-transparent rounded-3xl p-8 my-12 max-w-4xl mx-auto">
+            {/* Apostila Mockup */}
+            <div className="mb-8">
+              <img 
+                src={apostilaMockup} 
+                alt="Apostila PND - Prova Nacional Docente" 
+                className="w-full max-w-md mx-auto h-auto drop-shadow-2xl animate-float"
+              />
+            </div>
+
+            {/* Price Section */}
+            <div className="mb-8">
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+                  🔥 De <span className="line-through text-muted-foreground">R$ 89,90</span> por apenas <span className="text-gold">R$ 10,90</span> 🔥
+                </div>
+                <Badge className="bg-destructive text-destructive-foreground px-4 py-2 text-sm font-semibold">
+                  OFERTA POR TEMPO LIMITADO
+                </Badge>
+              </div>
+            </div>
+
+            {/* Benefits */}
+            <div className="grid md:grid-cols-2 gap-4 mb-8 max-w-2xl mx-auto">
+              <div className="flex items-start gap-3">
+                <BookOpen className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
+                <span className="text-foreground font-medium">Apostila completa e atualizada</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Target className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
+                <span className="text-foreground font-medium">Questões comentadas estilo INEP</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Trophy className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
+                <span className="text-foreground font-medium">Simulados exclusivos</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Mail className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
+                <span className="text-foreground font-medium">Acesso imediato no e-mail</span>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="text-center">
+              <Button 
+                size="lg" 
+                variant="gold"
+                className="text-lg md:text-xl px-10 py-8 font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
+                onClick={() => window.open('https://pay.kiwify.com.br/vS4emBV', '_blank')}
+              >
+                QUERO MINHA APOSTILA POR R$ 10,90
+              </Button>
+            </div>
+          </div>
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 my-12">
