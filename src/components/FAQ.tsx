@@ -43,17 +43,17 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-20 bg-background">
+    <section id="faq" className="py-20 bg-navy">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-gold mb-4">
             <HelpCircle className="w-8 h-8 text-white" />
           </div>
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-navy-dark mb-4">
+          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4">
             Perguntas
             <span className="text-transparent bg-clip-text bg-gradient-gold"> Frequentes</span>
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-xl text-white/80">
             Tire suas dúvidas sobre nosso método de aprovação
           </p>
         </div>
@@ -65,10 +65,10 @@ export function FAQ() {
               value={`item-${index}`}
               className="border border-gold/20 rounded-lg px-6 hover:border-gold/40 transition-colors"
             >
-              <AccordionTrigger className="text-left text-navy-dark hover:text-gold hover:no-underline py-4">
+              <AccordionTrigger className="text-left text-white hover:text-gold hover:no-underline py-4">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground pb-4">
+              <AccordionContent className="text-white/80 pb-4">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

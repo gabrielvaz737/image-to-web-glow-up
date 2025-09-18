@@ -70,14 +70,14 @@ const testimonialImages = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 bg-muted/30">
+    <section id="testimonials" className="py-20 bg-navy">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-navy-dark mb-4">
+          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4">
             Histórias de
             <span className="text-transparent bg-clip-text bg-gradient-gold"> Sucesso</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-white/80 max-w-3xl mx-auto">
             Veja o que nossos alunos aprovados têm a dizer sobre a jornada até a conquista
           </p>
         </div>

@@ -72,14 +72,14 @@ const apostilas = [
 
 export function StudyMaterials() {
   return (
-    <section id="materials" className="py-20 bg-muted/30">
+    <section id="materials" className="py-20 bg-navy">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-navy-dark mb-4">
+          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4">
             Material de Estudo
             <span className="text-transparent bg-clip-text bg-gradient-gold"> Completo</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-white/80 max-w-3xl mx-auto">
             Tudo que você precisa para conquistar sua aprovação em um só lugar
           </p>
         </div>
@@ -113,7 +113,7 @@ export function StudyMaterials() {
 
         {/* Carousel de Apostilas */}
         <div>
-          <h3 className="text-2xl font-semibold text-navy-dark text-center mb-6">
+          <h3 className="text-2xl font-semibold text-white text-center mb-6">
             Nossas Apostilas Exclusivas (exemplos)
           </h3>
           <Carousel
