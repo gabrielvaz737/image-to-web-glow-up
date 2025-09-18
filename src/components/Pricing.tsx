@@ -54,12 +54,12 @@ const plans = [
 
 export function Pricing() {
   const handlePurchase = (planName: string) => {
-    // Aqui você pode adicionar integração com gateway de pagamento
-    // Por enquanto, vamos simular abrindo um link externo
-    const whatsappNumber = '5511999999999'; // Substitua pelo número real
-    const message = `Olá! Tenho interesse no plano ${planName} da Conquista Concursos.`;
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    // Redirect to Kiwify checkout
+    if (planName.includes('Premium')) {
+      window.open('https://pay.kiwify.com.br/0FNVG4I', '_blank');
+    } else if (planName.includes('Guia Essencial')) {
+      window.open('https://pay.kiwify.com.br/vS4emBV', '_blank');
+    }
   };
 
   return (
