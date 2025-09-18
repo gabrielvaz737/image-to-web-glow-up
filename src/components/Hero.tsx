@@ -129,10 +129,10 @@ export function Hero() {
               <Button 
                 size="lg" 
                 variant="gold"
-                className="text-base sm:text-lg md:text-xl px-6 sm:px-8 md:px-10 py-6 sm:py-7 md:py-8 font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 w-full sm:w-auto max-w-md mx-auto"
-                onClick={() => window.open('https://pay.kiwify.com.br/vS4emBV', '_blank')}
+                className="text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-5 sm:py-6 md:py-7 font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 w-full sm:w-auto max-w-md mx-auto"
+                onClick={() => scrollToSection('pricing')}
               >
-                QUERO MINHA APOSTILA POR R$ 10,90
+                QUERO POR R$ 10,90
               </Button>
             </div>
           </div>
