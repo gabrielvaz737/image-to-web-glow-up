@@ -5,35 +5,16 @@ import { CountdownTimer } from "./CountdownTimer";
 import logo from "@/assets/logo-conquista.jpeg";
 import apostilaOriginal from "@/assets/apostila-original.png";
 import { useState, useEffect } from "react";
-import { removeBackground, loadImage } from "@/utils/backgroundRemoval";
+
 
 export function Hero() {
   const [processedImage, setProcessedImage] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(true);
 
   useEffect(() => {
-    const processImage = async () => {
-      try {
-        // Fetch the original image (avoid cache)
-        const versionedUrl = `${apostilaOriginal}?v=${Date.now()}`;
-        const response = await fetch(versionedUrl, { cache: 'no-store' });
-        const blob = await response.blob();
-        const img = await loadImage(blob);
-        
-        // Remove background
-        const processedBlob = await removeBackground(img);
-        const processedUrl = URL.createObjectURL(processedBlob);
-        setProcessedImage(processedUrl);
-      } catch (error) {
-        console.error('Failed to process image:', error);
-        // Fallback to original image if processing fails
-        setProcessedImage(apostilaOriginal);
-      } finally {
-        setIsProcessing(false);
-      }
-    };
-
-    processImage();
+    const versionedUrl = `${apostilaOriginal}?v=${Date.now()}`;
+    setProcessedImage(versionedUrl);
+    setIsProcessing(false);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
