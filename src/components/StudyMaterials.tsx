@@ -87,7 +87,7 @@ export function StudyMaterials() {
         {/* Carousel de Apostilas */}
         <div className="mb-12">
           <h3 className="text-2xl font-semibold text-navy-dark text-center mb-6">
-            Nossas Apostilas Exclusivas
+            Nossas Apostilas Exclusivas (exemplos)
           </h3>
           <Carousel
             opts={{
