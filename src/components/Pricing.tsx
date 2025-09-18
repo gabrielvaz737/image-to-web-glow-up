@@ -2,6 +2,8 @@ import { Check, X, Flame, Users, Target, TrendingUp, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useEffect, useState } from "react";
+import garantia30Dias from "@/assets/garantia-30-dias.png";
 
 const plans = [
   {
@@ -53,6 +55,28 @@ const plans = [
 ];
 
 export function Pricing() {
+  const [timeLeft, setTimeLeft] = useState({
+    minutes: 9,
+    seconds: 8,
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev.seconds === 0) {
+          if (prev.minutes === 0) {
+            // Reset to 30 minutes when timer reaches 0
+            return { minutes: 30, seconds: 0 };
+          }
+          return { minutes: prev.minutes - 1, seconds: 59 };
+        }
+        return { minutes: prev.minutes, seconds: prev.seconds - 1 };
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const handlePurchase = (planName: string) => {
     // Redirect to Kiwify checkout
     if (planName.includes('Premium')) {
@@ -173,12 +197,21 @@ export function Pricing() {
           ))}
         </div>
 
+        {/* Guarantee Badge */}
+        <div className="flex flex-col items-center mt-12">
+          <img 
+            src={garantia30Dias} 
+            alt="Garantia de 30 dias" 
+            className="w-48 h-48 object-contain animate-float mb-6"
+          />
+        </div>
+
         {/* Footer Timer */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-8">
           <div className="flex items-center justify-center gap-2 text-lg">
-            <Clock className="w-5 h-5 text-gold" />
+            <Clock className="w-5 h-5 text-gold animate-pulse" />
             <span className="text-white">
-              <strong className="text-gold">Tempo restante:</strong> 9:08
+              <strong className="text-gold">Tempo restante:</strong> {timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
             </span>
           </div>
           <p className="text-sm text-white/60 mt-4 flex items-center justify-center gap-2">
