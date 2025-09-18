@@ -97,8 +97,8 @@ export function Hero() {
             {/* Price Section */}
             <div className="mb-8">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-                   De <span className="line-through text-muted-foreground">R$ 89,90</span> por apenas <span className="text-gold">R$ 10,90</span> 
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+                   De <span className="line-through text-white/60">R$ 89,90</span> por apenas <span className="text-gold">R$ 10,90</span> 
                 </div>
                 <Badge className="bg-destructive text-destructive-foreground px-4 py-2 text-sm font-semibold">
                   OFERTA POR TEMPO LIMITADO
