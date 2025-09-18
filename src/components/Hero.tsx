@@ -3,9 +3,38 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CountdownTimer } from "./CountdownTimer";
 import logo from "@/assets/logo-conquista.jpeg";
-import apostilaMockup from "@/assets/apostila-mockup.png";
+import apostilaOriginal from "@/assets/apostila-original.png";
+import { useState, useEffect } from "react";
+import { removeBackground, loadImage } from "@/utils/backgroundRemoval";
 
 export function Hero() {
+  const [processedImage, setProcessedImage] = useState<string | null>(null);
+  const [isProcessing, setIsProcessing] = useState(true);
+
+  useEffect(() => {
+    const processImage = async () => {
+      try {
+        // Fetch the original image
+        const response = await fetch(apostilaOriginal);
+        const blob = await response.blob();
+        const img = await loadImage(blob);
+        
+        // Remove background
+        const processedBlob = await removeBackground(img);
+        const processedUrl = URL.createObjectURL(processedBlob);
+        setProcessedImage(processedUrl);
+      } catch (error) {
+        console.error('Failed to process image:', error);
+        // Fallback to original image if processing fails
+        setProcessedImage(apostilaOriginal);
+      } finally {
+        setIsProcessing(false);
+      }
+    };
+
+    processImage();
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -68,11 +97,17 @@ export function Hero() {
           <div className="bg-gradient-to-b from-gold/5 to-transparent rounded-3xl p-8 my-12 max-w-4xl mx-auto">
             {/* Apostila Mockup */}
             <div className="mb-8">
-              <img 
-                src={apostilaMockup} 
-                alt="Apostila PND - Prova Nacional Docente" 
-                className="w-full max-w-md mx-auto h-auto drop-shadow-2xl animate-float"
-              />
+              {isProcessing ? (
+                <div className="w-full max-w-md mx-auto h-96 bg-muted/20 rounded-lg animate-pulse flex items-center justify-center">
+                  <span className="text-muted-foreground">Processando imagem...</span>
+                </div>
+              ) : (
+                <img 
+                  src={processedImage || apostilaOriginal} 
+                  alt="Apostila PND - Prova Nacional Docente" 
+                  className="w-full max-w-md mx-auto h-auto drop-shadow-2xl animate-float"
+                />
+              )}
             </div>
 
             {/* Price Section */}
