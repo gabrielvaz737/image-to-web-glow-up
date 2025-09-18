@@ -63,7 +63,7 @@ export function Hero() {
 
           {/* Impact Headline */}
           <div className="bg-gradient-gold p-1 rounded-2xl max-w-4xl mx-auto my-6">
-            <div className="bg-navy-dark/95 backdrop-blur-sm rounded-xl p-6 shadow-2xl">
+            <div className="bg-navy-dark rounded-xl p-6 shadow-2xl">
               <p className="text-lg md:text-2xl font-bold text-white">
                 🎯 Quem já decifrou o INEP entrega tudo mastigado pra você chegue na PND sabendo exatamente o que vai cair
               </p>
