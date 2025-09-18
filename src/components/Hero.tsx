@@ -140,7 +140,7 @@ export function Hero() {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 my-12">
             <div className="text-center">
-              <div className="text-4xl font-bold text-gold">93%</div>
+              <div className="text-4xl font-bold text-gold">97%</div>
               <div className="text-sm text-muted-foreground">Taxa de Aprovação</div>
             </div>
             <div className="text-center">
