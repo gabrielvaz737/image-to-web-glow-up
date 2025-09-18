@@ -132,7 +132,7 @@ export function Testimonials() {
           <CarouselContent className="-ml-4">
             {[...testimonials, ...testimonials].map((testimonial, index) => (
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                <Card className="p-6 hover:shadow-xl transition-all duration-300 border-gold/10 hover:border-gold/30 relative h-full">
+                <Card className="p-6 bg-navy-light/80 backdrop-blur-sm text-white hover:shadow-xl transition-all duration-300 border-white/10 hover:border-gold/30 relative h-full">
                   <Quote className="absolute top-4 right-4 w-8 h-8 text-gold/20" />
                   
                   <div className="flex items-center gap-4 mb-4">
@@ -142,8 +142,8 @@ export function Testimonials() {
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <h3 className="font-semibold text-navy-dark">{testimonial.name}</h3>
-                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                      <h3 className="font-semibold text-white">{testimonial.name}</h3>
+                      <p className="text-sm text-white/70">{testimonial.role}</p>
                     </div>
                   </div>
 
@@ -153,7 +153,7 @@ export function Testimonials() {
                     ))}
                   </div>
 
-                  <p className="text-muted-foreground leading-relaxed">{testimonial.content}</p>
+                  <p className="text-white/80 leading-relaxed">{testimonial.content}</p>
                 </Card>
               </CarouselItem>
             ))}

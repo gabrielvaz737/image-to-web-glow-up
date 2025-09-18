@@ -89,7 +89,7 @@ export function StudyMaterials() {
           {materials.map((material, index) => (
             <Card
               key={index}
-              className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-gold/10 hover:border-gold/30 group relative overflow-hidden"
+              className="p-6 bg-navy-light/80 backdrop-blur-sm text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-white/10 hover:border-gold/30 group relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-gold opacity-5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500" />
               
@@ -103,9 +103,9 @@ export function StudyMaterials() {
                   </Badge>
                 </div>
                 
-                <h3 className="font-semibold text-lg mb-1 text-navy-dark">{material.title}</h3>
+                <h3 className="font-semibold text-lg mb-1 text-white">{material.title}</h3>
                 <p className="text-gold font-bold text-sm mb-2">{material.count}</p>
-                <p className="text-muted-foreground text-sm">{material.description}</p>
+                <p className="text-white/80 text-sm">{material.description}</p>
               </div>
             </Card>
           ))}
@@ -133,7 +133,7 @@ export function StudyMaterials() {
             <CarouselContent className="-ml-4">
               {[...apostilas, ...apostilas, ...apostilas].map((apostila, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="p-4 hover:shadow-xl transition-all duration-300 border-gold/10 hover:border-gold/30">
+                  <Card className="p-4 bg-navy-light/80 text-white hover:shadow-xl transition-all duration-300 border-white/10 hover:border-gold/30">
                     <div className="aspect-[3/4] relative overflow-hidden rounded-lg mb-4">
                       <img
                         src={apostila.src}
@@ -142,8 +142,8 @@ export function StudyMaterials() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    <h4 className="font-semibold text-navy-dark mb-1">{apostila.title}</h4>
-                    <p className="text-sm text-muted-foreground">{apostila.description}</p>
+                    <h4 className="font-semibold text-white mb-1">{apostila.title}</h4>
+                    <p className="text-sm text-white/80">{apostila.description}</p>
                   </Card>
                 </CarouselItem>
               ))}
