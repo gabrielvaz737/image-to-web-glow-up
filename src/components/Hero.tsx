@@ -14,8 +14,9 @@ export function Hero() {
   useEffect(() => {
     const processImage = async () => {
       try {
-        // Fetch the original image
-        const response = await fetch(apostilaOriginal);
+        // Fetch the original image (avoid cache)
+        const versionedUrl = `${apostilaOriginal}?v=${Date.now()}`;
+        const response = await fetch(versionedUrl, { cache: 'no-store' });
         const blob = await response.blob();
         const img = await loadImage(blob);
         
@@ -180,7 +181,7 @@ export function Hero() {
             <Button 
               size="lg" 
               variant="gold" 
-              className="text-lg px-8 py-6"
+              className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto"
               onClick={handleCTAClick}
             >
               <Trophy className="mr-2" />
@@ -189,7 +190,7 @@ export function Hero() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="text-lg px-8 py-6 border-2"
+              className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 border-2 w-full sm:w-auto"
               onClick={() => scrollToSection('testimonials')}
             >
               <Calendar className="mr-2" />
