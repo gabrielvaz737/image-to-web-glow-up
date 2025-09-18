@@ -71,7 +71,9 @@ export function Hero() {
           </div>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-foreground/80 font-medium max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl font-semibold max-w-3xl mx-auto text-white" style={{
+            textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5), 0px 0px 20px rgba(0, 0, 0, 0.3)'
+          }}>
             E se você pudesse estudar com um material que antecipa com precisão o estilo do INEP e te prepara para acertar exatamente o que será cobrado na Prova Nacional Docente?
           </p>
 
