@@ -17,42 +17,42 @@ const materials = [
     icon: FileText,
     title: "Apostilas Digitais",
     count: "1.200+ páginas",
-    description: "Material completo e atualizado conforme último edital",
+    description: "Todo conteúdo já atualizado, direto do edital, pronto pra você estudar sem perder tempo.",
     badge: "PDF",
   },
   {
     icon: Video,
     title: "Videoaulas",
     count: "300+ horas",
-    description: "Aulas gravadas com os melhores professores do Brasil",
+    description: "Aulas rápidas e diretas, explicadas no mesmo estilo que a banca cobra.",
     badge: "HD",
   },
   {
     icon: PenTool,
     title: "Questões Comentadas",
-    count: "5.000+ questões",
-    description: "Banco de questões de provas anteriores com gabarito",
+    count: "450+ questões",
+    description: "Mais de 450 questões comentadas no estilo INEP — você estuda já sabendo como a banca cobra.",
     badge: "Atualizado",
   },
   {
     icon: Brain,
     title: "Simulados",
     count: "50+ provas",
-    description: "Simulados no mesmo formato da prova oficial",
+    description: "Treine com simulados iguais aos da prova real — sem surpresa no dia.",
     badge: "Online",
   },
   {
     icon: Headphones,
     title: "Audiobooks",
     count: "100+ horas",
-    description: "Estude enquanto dirige ou pratica exercícios",
+    description: "Estude ouvindo no carro ou lavando a louça — aproveite cada minuto.",
     badge: "MP3",
   },
   {
     icon: BookMarked,
     title: "Resumos",
     count: "200+ mapas",
-    description: "Mapas mentais e resumos para revisão rápida",
+    description: "Resumo mastigado e direto ao ponto — perfeito pra revisar na véspera.",
     badge: "Visual",
   },
 ];
@@ -84,8 +84,35 @@ export function StudyMaterials() {
           </p>
         </div>
 
+        {/* Grid de Materiais */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {materials.map((material, index) => (
+            <Card
+              key={index}
+              className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-gold/10 hover:border-gold/30 group relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-gold opacity-5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500" />
+              
+              <div className="relative">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-gold flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <material.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <Badge variant="secondary" className="bg-gold/10 text-gold-dark border-gold/20">
+                    {material.badge}
+                  </Badge>
+                </div>
+                
+                <h3 className="font-semibold text-lg mb-1 text-navy-dark">{material.title}</h3>
+                <p className="text-gold font-bold text-sm mb-2">{material.count}</p>
+                <p className="text-muted-foreground text-sm">{material.description}</p>
+              </div>
+            </Card>
+          ))}
+        </div>
+
         {/* Carousel de Apostilas */}
-        <div className="mb-12">
+        <div>
           <h3 className="text-2xl font-semibold text-navy-dark text-center mb-6">
             Nossas Apostilas Exclusivas (exemplos)
           </h3>
@@ -122,33 +149,6 @@ export function StudyMaterials() {
               ))}
             </CarouselContent>
           </Carousel>
-        </div>
-
-        {/* Grid de Materiais */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {materials.map((material, index) => (
-            <Card
-              key={index}
-              className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-gold/10 hover:border-gold/30 group relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-gold opacity-5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500" />
-              
-              <div className="relative">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-gold flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <material.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <Badge variant="secondary" className="bg-gold/10 text-gold-dark border-gold/20">
-                    {material.badge}
-                  </Badge>
-                </div>
-                
-                <h3 className="font-semibold text-lg mb-1 text-navy-dark">{material.title}</h3>
-                <p className="text-gold font-bold text-sm mb-2">{material.count}</p>
-                <p className="text-muted-foreground text-sm">{material.description}</p>
-              </div>
-            </Card>
-          ))}
         </div>
       </div>
     </section>
