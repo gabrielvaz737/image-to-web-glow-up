@@ -69,7 +69,7 @@ export function Testimonials() {
         </div>
 
         {/* Vídeo de Depoimentos */}
-        <div className="flex justify-center">
+        <div className="flex flex-col items-center gap-8">
           <div className="w-full max-w-4xl">
             <video 
               controls 
@@ -80,6 +80,14 @@ export function Testimonials() {
               Seu navegador não suporta vídeos em HTML5.
             </video>
           </div>
+          
+          {/* CTA Button */}
+          <button
+            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-gradient-to-r from-gold-light to-gold text-navy-dark hover:from-gold hover:to-gold-dark font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+          >
+            QUERO MINHA APOSTILA AGORA
+          </button>
         </div>
       </div>
     </section>
