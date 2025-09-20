@@ -1,6 +1,3 @@
-import { Star, Quote } from "lucide-react";
-import { Card } from "@/components/ui/card";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   Carousel,
   CarouselContent,
@@ -14,51 +11,7 @@ import testimonialFeedback2 from "@/assets/testimonial-feedback-2.webp";
 import testimonialChat1 from "@/assets/testimonial-chat-1.png";
 import testimonialChat2 from "@/assets/testimonial-chat-2.png";
 import testimonialChat3 from "@/assets/testimonial-chat-3.png";
-
-const testimonials = [
-  {
-    name: "Maria Silva",
-    role: "Aprovada - Professora Federal",
-    content: "Depois de 3 anos tentando, finalmente consegui minha aprovação! O material é completo e o suporte fez toda diferença.",
-    rating: 5,
-    initials: "MS",
-  },
-  {
-    name: "João Pedro",
-    role: "Aprovado - Docente IFSP",
-    content: "A metodologia é incrível! Em apenas 6 meses de estudo consegui a aprovação que tanto sonhava. Recomendo muito!",
-    rating: 5,
-    initials: "JP",
-  },
-  {
-    name: "Ana Costa",
-    role: "Aprovada - Professora UFRJ",
-    content: "O diferencial foi a mentoria individual. Ter um professor para tirar dúvidas e orientar meus estudos foi fundamental.",
-    rating: 5,
-    initials: "AC",
-  },
-  {
-    name: "Carlos Oliveira",
-    role: "Aprovado - Docente UnB",
-    content: "Apostilas atualizadas e simulados idênticos à prova real. Conquistei minha vaga no primeiro concurso que prestei!",
-    rating: 5,
-    initials: "CO",
-  },
-  {
-    name: "Beatriz Santos",
-    role: "Aprovada - Professora UFMG",
-    content: "O investimento vale cada centavo! Hoje ganho R$ 5.700 e tenho estabilidade. Mudou minha vida completamente.",
-    rating: 5,
-    initials: "BS",
-  },
-  {
-    name: "Rafael Mendes",
-    role: "Aprovado - Docente UFRGS",
-    content: "Suporte 24h é real! Sempre que precisei, recebi ajuda imediata. A equipe está comprometida com nossa aprovação.",
-    rating: 5,
-    initials: "RM",
-  },
-];
+import testimonialsVideo from "@/assets/testimonials-video.mp4";
 
 const testimonialImages = [
   testimonialFeedback1,
@@ -114,51 +67,19 @@ export function Testimonials() {
           </Carousel>
         </div>
 
-        {/* Carousel de Cards de Depoimentos */}
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          plugins={[
-            Autoplay({
-              delay: 4000,
-              stopOnInteraction: false,
-              stopOnMouseEnter: false,
-            }),
-          ]}
-          className="w-full"
-        >
-          <CarouselContent className="-ml-4">
-            {[...testimonials, ...testimonials].map((testimonial, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                <Card className="p-6 bg-navy-light/80 backdrop-blur-sm text-white hover:shadow-xl transition-all duration-300 border-white/10 hover:border-gold/30 relative h-full">
-                  <Quote className="absolute top-4 right-4 w-8 h-8 text-gold/20" />
-                  
-                  <div className="flex items-center gap-4 mb-4">
-                    <Avatar className="h-12 w-12 ring-2 ring-gold/20">
-                      <AvatarFallback className="bg-gradient-gold text-white font-semibold">
-                        {testimonial.initials}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <h3 className="font-semibold text-white">{testimonial.name}</h3>
-                      <p className="text-sm text-white/70">{testimonial.role}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-1 mb-3">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-gold text-gold" />
-                    ))}
-                  </div>
-
-                  <p className="text-white/80 leading-relaxed">{testimonial.content}</p>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+        {/* Vídeo de Depoimentos */}
+        <div className="flex justify-center">
+          <div className="w-full max-w-4xl">
+            <video 
+              controls 
+              className="w-full rounded-lg shadow-2xl"
+              poster={testimonialFeedback1}
+            >
+              <source src={testimonialsVideo} type="video/mp4" />
+              Seu navegador não suporta vídeos em HTML5.
+            </video>
+          </div>
+        </div>
       </div>
     </section>
   );
