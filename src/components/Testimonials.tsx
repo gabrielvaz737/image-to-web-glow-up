@@ -12,6 +12,7 @@ import testimonialChat1 from "@/assets/testimonial-chat-1.png";
 import testimonialChat2 from "@/assets/testimonial-chat-2.png";
 import testimonialChat3 from "@/assets/testimonial-chat-3.png";
 import testimonialsVideo from "@/assets/testimonials-video.mp4";
+import videoPoster from "@/assets/video-poster.png";
 
 const testimonialImages = [
   testimonialFeedback1,
@@ -73,7 +74,7 @@ export function Testimonials() {
             <video 
               controls 
               className="w-full rounded-lg shadow-2xl"
-              poster={testimonialFeedback1}
+              poster={videoPoster}
             >
               <source src={testimonialsVideo} type="video/mp4" />
               Seu navegador não suporta vídeos em HTML5.
