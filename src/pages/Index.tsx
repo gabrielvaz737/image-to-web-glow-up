@@ -13,6 +13,7 @@ const Index = () => {
     
     // Adicionar entrada no histórico para detectar o botão voltar
     window.history.pushState(null, '', window.location.href);
+    window.history.pushState(null, '', window.location.href);
     
     // Detectar quando o usuário move o mouse para sair da viewport (desktop)
     const handleMouseLeave = (e: MouseEvent) => {
@@ -68,14 +69,9 @@ const Index = () => {
     };
 
     // Detectar quando o usuário usa o botão voltar do navegador (mobile e desktop)
-    const handlePopState = (e: PopStateEvent) => {
+    const handlePopState = () => {
       if (!hasRedirected) {
         hasRedirected = true;
-        // Prevenir a navegação de voltar
-        e.preventDefault();
-        // Adicionar novamente ao histórico
-        window.history.pushState(null, '', window.location.href);
-        // Redirecionar imediatamente
         window.location.replace(redirectUrl);
       }
     };
