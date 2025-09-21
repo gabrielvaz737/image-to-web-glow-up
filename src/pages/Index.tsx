@@ -11,11 +11,14 @@ const Index = () => {
     let hasRedirected = false;
     const redirectUrl = "https://pnd-flash-boost.lovable.app";
     
+    // Adicionar entrada no histórico para detectar o botão voltar
+    window.history.pushState(null, '', window.location.href);
+    
     // Detectar quando o usuário move o mouse para sair da viewport (desktop)
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0 && !hasRedirected) {
         hasRedirected = true;
-        window.location.href = redirectUrl;
+        window.location.replace(redirectUrl);
       }
     };
 
@@ -32,7 +35,7 @@ const Index = () => {
       // Se o usuário fizer swipe para cima partindo do topo da tela (tentando sair)
       if (touchStartY < 50 && deltaY > 100 && !hasRedirected) {
         hasRedirected = true;
-        window.location.href = redirectUrl;
+        window.location.replace(redirectUrl);
       }
     };
 
@@ -44,7 +47,7 @@ const Index = () => {
       inactivityTimer = setTimeout(() => {
         if (!hasRedirected) {
           hasRedirected = true;
-          window.location.href = redirectUrl;
+          window.location.replace(redirectUrl);
         }
       }, 30000);
     };
@@ -53,7 +56,9 @@ const Index = () => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       if (!hasRedirected) {
         // Tenta redirecionar primeiro
-        window.location.href = redirectUrl;
+        setTimeout(() => {
+          window.location.replace(redirectUrl);
+        }, 0);
         
         // Se o redirecionamento for bloqueado, mostra mensagem
         e.preventDefault();
@@ -62,11 +67,16 @@ const Index = () => {
       }
     };
 
-    // Detectar quando o usuário usa o botão voltar do navegador
-    const handlePopState = () => {
+    // Detectar quando o usuário usa o botão voltar do navegador (mobile e desktop)
+    const handlePopState = (e: PopStateEvent) => {
       if (!hasRedirected) {
         hasRedirected = true;
-        window.location.href = redirectUrl;
+        // Prevenir a navegação de voltar
+        e.preventDefault();
+        // Adicionar novamente ao histórico
+        window.history.pushState(null, '', window.location.href);
+        // Redirecionar imediatamente
+        window.location.replace(redirectUrl);
       }
     };
 
@@ -77,9 +87,17 @@ const Index = () => {
         setTimeout(() => {
           if (!document.hidden && !hasRedirected) {
             hasRedirected = true;
-            window.location.href = redirectUrl;
+            window.location.replace(redirectUrl);
           }
         }, 100);
+      }
+    };
+
+    // Detectar navegação para trás usando hashchange (fallback para mobile)
+    const handleHashChange = () => {
+      if (!hasRedirected) {
+        hasRedirected = true;
+        window.location.replace(redirectUrl);
       }
     };
 
@@ -89,6 +107,7 @@ const Index = () => {
     document.addEventListener('touchend', handleTouchEnd);
     window.addEventListener('beforeunload', handleBeforeUnload);
     window.addEventListener('popstate', handlePopState);
+    window.addEventListener('hashchange', handleHashChange);
     document.addEventListener('visibilitychange', handleVisibilityChange);
     
     // Eventos de atividade para resetar o timer
@@ -107,6 +126,7 @@ const Index = () => {
       document.removeEventListener('touchend', handleTouchEnd);
       window.removeEventListener('beforeunload', handleBeforeUnload);
       window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('hashchange', handleHashChange);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       document.removeEventListener('mousemove', resetInactivityTimer);
       document.removeEventListener('click', resetInactivityTimer);
