@@ -9,7 +9,7 @@ import { Footer } from "@/components/Footer";
 const Index = () => {
   useEffect(() => {
     let hasRedirected = false;
-    const redirectUrl = "https://pay.kiwify.com.br/pOAsyY5";
+    const redirectUrl = "/back-redirect";
     
     // Adicionar entrada no histórico para detectar o botão voltar
     window.history.pushState(null, '', window.location.href);
