@@ -40,18 +40,8 @@ const Index = () => {
       }
     };
 
-    // Detectar inatividade (mobile e desktop)
-    let inactivityTimer: NodeJS.Timeout;
-    const resetInactivityTimer = () => {
-      clearTimeout(inactivityTimer);
-      // Redireciona após 30 segundos de inatividade
-      inactivityTimer = setTimeout(() => {
-        if (!hasRedirected) {
-          hasRedirected = true;
-          window.location.replace(redirectUrl);
-        }
-      }, 30000);
-    };
+    // Detectar inatividade (mobile e desktop) - REMOVIDO para não redirecionar automaticamente
+    // O redirecionamento agora só acontece quando o usuário tenta sair
 
     // Detectar quando o usuário tenta fechar a aba/janela
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
@@ -105,15 +95,6 @@ const Index = () => {
     window.addEventListener('popstate', handlePopState);
     window.addEventListener('hashchange', handleHashChange);
     document.addEventListener('visibilitychange', handleVisibilityChange);
-    
-    // Eventos de atividade para resetar o timer
-    document.addEventListener('mousemove', resetInactivityTimer);
-    document.addEventListener('click', resetInactivityTimer);
-    document.addEventListener('touchstart', resetInactivityTimer);
-    document.addEventListener('scroll', resetInactivityTimer);
-    
-    // Iniciar timer de inatividade
-    resetInactivityTimer();
 
     // Cleanup
     return () => {
@@ -124,11 +105,6 @@ const Index = () => {
       window.removeEventListener('popstate', handlePopState);
       window.removeEventListener('hashchange', handleHashChange);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
-      document.removeEventListener('mousemove', resetInactivityTimer);
-      document.removeEventListener('click', resetInactivityTimer);
-      document.removeEventListener('touchstart', resetInactivityTimer);
-      document.removeEventListener('scroll', resetInactivityTimer);
-      clearTimeout(inactivityTimer);
     };
   }, []);
 
