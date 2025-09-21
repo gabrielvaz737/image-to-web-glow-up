@@ -79,11 +79,7 @@ export function Pricing() {
 
   const handlePurchase = (planName: string) => {
     // Redirect to Kiwify checkout
-    if (planName.includes('Premium')) {
-      window.open('https://pay.kiwify.com.br/0FNVG4I', '_blank');
-    } else if (planName.includes('Guia Essencial')) {
-      window.open('https://pay.kiwify.com.br/vS4emBV', '_blank');
-    }
+    window.open('https://pay.kiwify.com.br/pOAsyY5', '_blank');
   };
 
   return (

@@ -25,7 +25,7 @@ export function Hero() {
   };
 
   const handleCTAClick = () => {
-    scrollToSection('pricing');
+    window.open('https://pay.kiwify.com.br/pOAsyY5', '_blank');
   };
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-radial">
@@ -132,7 +132,7 @@ export function Hero() {
                 size="lg" 
                 variant="gold"
                 className="text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-5 sm:py-6 md:py-7 font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 w-full sm:w-auto max-w-md mx-auto"
-                onClick={() => scrollToSection('pricing')}
+                onClick={handleCTAClick}
               >
                 QUERO POR R$ 10,90
               </Button>

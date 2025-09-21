@@ -78,7 +78,7 @@ export function FAQ() {
         {/* CTA Button */}
         <div className="flex justify-center mt-12">
           <button
-            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => window.open('https://pay.kiwify.com.br/pOAsyY5', '_blank')}
             className="bg-gradient-to-r from-gold-light to-gold text-navy-dark hover:from-gold hover:to-gold-dark font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
           >
             COMEÇAR AGORA POR R$ 10,90
