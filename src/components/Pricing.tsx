@@ -78,8 +78,14 @@ export function Pricing() {
   }, []);
 
   const handlePurchase = (planName: string) => {
-    // Redirect to Kiwify checkout
-    window.open('https://pay.kiwify.com.br/pOAsyY5', '_blank');
+    // Usar link de checkout específico para cada plano
+    const checkoutLinks: { [key: string]: string } = {
+      'PND - Guia Essencial': 'https://pay.kiwify.com.br/vS4emBV',
+      'PND - Combo Premium +7 BÔNUS': 'https://pay.kiwify.com.br/0FNVG4I'
+    };
+    
+    const link = checkoutLinks[planName] || 'https://pay.kiwify.com.br/vS4emBV';
+    window.open(link, '_blank');
   };
 
   return (
