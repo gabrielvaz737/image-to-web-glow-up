@@ -25,7 +25,7 @@ export function Hero() {
   };
 
   const handleCTAClick = () => {
-    window.open('https://pay.kiwify.com.br/pOAsyY5', '_blank');
+    scrollToSection('pricing');
   };
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-radial">
