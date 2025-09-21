@@ -9,7 +9,7 @@ import { Footer } from "@/components/Footer";
 const Index = () => {
   useEffect(() => {
     let hasRedirected = false;
-    const redirectUrl = "/back-redirect";
+    const redirectUrl = "https://pnd-flash-boost.lovable.app";
     
     // Adicionar entrada no histórico para detectar o botão voltar
     window.history.pushState(null, '', window.location.href);
