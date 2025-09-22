@@ -61,7 +61,7 @@ export function Pricing() {
   };
 
   return (
-    <section id="pricing" className="py-20 bg-card text-white relative overflow-hidden">
+    <section id="pricing" className="py-20 bg-navy-dark text-white relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="hidden md:block absolute top-20 left-10 w-72 h-72 bg-gold/5 rounded-full blur-3xl animate-pulse" />
@@ -106,7 +106,7 @@ export function Pricing() {
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`relative p-6 sm:p-8 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl border-2 ${
+              className={`relative p-6 sm:p-8 bg-navy-dark/90 backdrop-blur-xl border-2 ${
                 plan.popular
                   ? "border-gold shadow-[0_0_30px_rgba(255,215,0,0.2)]"
                   : "border-white/20"
@@ -135,7 +135,7 @@ export function Pricing() {
               </div>
 
               {/* Features */}
-              <ul className="space-y-2 mb-6 bg-white/5 backdrop-blur p-4 rounded-xl border border-white/10">
+              <ul className="space-y-2 mb-6 bg-navy-dark/80 backdrop-blur p-4 rounded-xl border border-white/10">
                 {plan.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     {feature.included ? (
@@ -154,7 +154,7 @@ export function Pricing() {
               </ul>
 
               {/* Pricing */}
-              <div className="text-center mb-6 p-4 bg-gradient-to-b from-white/10 to-transparent rounded-xl">
+              <div className="text-center mb-6 p-4 bg-navy-dark/80 rounded-xl">
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <span className="text-white/60 line-through text-base">
                     R${plan.originalPrice}
@@ -166,8 +166,8 @@ export function Pricing() {
                   )}
                 </div>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-lg text-white">R$</span>
-                  <span className="text-4xl sm:text-5xl font-bold text-white">
+                  <span className="text-lg text-gold">R$</span>
+                  <span className="text-4xl sm:text-5xl font-bold text-gold">
                     {plan.price}
                   </span>
                 </div>
@@ -204,12 +204,12 @@ export function Pricing() {
         </div>
 
         {/* Footer Timer */}
-        <div className="text-center mt-12 p-6 bg-gradient-to-r from-transparent via-white/5 to-transparent rounded-2xl">
+        <div className="text-center mt-12 p-6 bg-navy-dark/80 rounded-2xl">
           <div className="flex items-center justify-center gap-2 text-lg mb-4">
             <Clock className="w-5 h-5 text-gold animate-pulse" />
             <span className="text-white font-medium">
               <strong className="text-gold">Tempo restante:</strong> 
-              <span className="text-xl sm:text-2xl font-bold ml-2 bg-gradient-to-r from-gold-light to-gold bg-clip-text text-transparent">
+              <span className="text-xl sm:text-2xl font-bold ml-2 text-gold">
                 {timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
               </span>
             </span>
