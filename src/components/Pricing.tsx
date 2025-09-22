@@ -25,7 +25,7 @@ const plans = [
       { text: "Bônus: Técnicas de Estudo", included: true },
     ],
     popular: true,
-    cta: "QUERO A PREMIUM AGORA!",
+    cta: "QUERO MINHA APROVAÇÃO AGORA!",
     payment: "Acesso completo imediato",
     buttonVariant: "destructive" as const,
   },
