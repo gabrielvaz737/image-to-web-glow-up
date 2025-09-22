@@ -7,35 +7,13 @@ import garantia30Dias from "@/assets/garantia-30-dias.png";
 
 const plans = [
   {
-    name: "PND - Guia Essencial",
-    subtitle: "Você recebe:",
-    price: "10,90",
-    originalPrice: "49,90",
-    badge: "Oferta Básica",
-    badgeColor: "bg-destructive",
-    features: [
-      { text: "+350 Questões Comentadas da PND", included: true },
-      { text: "Foco total nos temas mais cobrados", included: true },
-      { text: "Bônus: 3 Simulados ENADE: 120 Questões", included: true },
-      { text: "Bônus: Combo ECA", included: false },
-      { text: "Bônus: Combo LDB", included: false },
-      { text: "Bônus: Simulado INEP", included: false },
-      { text: "Bônus: Mapas Mentais: Educação", included: false },
-      { text: "Bônus: Técnicas de Estudo", included: false },
-    ],
-    popular: false,
-    cta: "ESSA SERVE PARA MIM!",
-    payment: "Pagamento único, acesso imediato",
-    buttonVariant: "success" as const,
-  },
-  {
     name: "PND - Combo Premium +7 BÔNUS",
     subtitle: "Você leva tudo isso:",
-    price: "22,90",
+    price: "27,90",
     originalPrice: "129,70",
     badge: "Oferta Premium",
     badgeColor: "bg-gradient-gold",
-    discount: "86% OFF",
+    discount: "78% OFF",
     features: [
       { text: "+450 Questões Comentadas e Gabaritadas", included: true },
       { text: "Foco total nos temas mais cobrados", included: true },
@@ -120,7 +98,7 @@ export function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           {plans.map((plan, index) => (
             <Card
               key={index}
