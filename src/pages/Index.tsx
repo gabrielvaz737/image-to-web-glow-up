@@ -10,17 +10,17 @@ const Index = () => {
   useEffect(() => {
     const redirectUrl = "https://pnd-flash-boost.lovable.app";
 
-    // Adiciona uma única entrada no histórico para capturar o primeiro "Voltar"
-    window.history.pushState({ backBlocked: true }, "", window.location.href);
+    // Adiciona duas entradas no histórico para capturar o botão Voltar no mobile/desktop
+    window.history.pushState({ backTrap: 1 }, "", window.location.href);
+    window.history.pushState({ backTrap: 2 }, "", window.location.href);
 
     const handlePopState = () => {
-      // Redireciona somente quando o usuário clicar no botão Voltar
-      window.location.replace(redirectUrl);
+      console.info("[back-redirect] interceptado: redirecionando para oferta");
+      window.location.href = redirectUrl; // usar href para garantir navegação no iOS
     };
 
     window.addEventListener("popstate", handlePopState);
 
-    // Cleanup
     return () => {
       window.removeEventListener("popstate", handlePopState);
     };
