@@ -66,8 +66,8 @@ export function Pricing() {
     <section id="pricing" className="py-20 bg-gradient-to-b from-navy-dark via-navy-dark to-navy-dark/95 text-white relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gold/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="hidden md:block absolute top-20 left-10 w-72 h-72 bg-gold/5 rounded-full blur-3xl animate-pulse" />
+        <div className="hidden md:block absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -75,7 +75,7 @@ export function Pricing() {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
             <Sparkles className="w-8 h-8 text-gold animate-pulse" />
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gold-light via-gold to-gold-light bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-gold-light via-gold to-gold-light bg-clip-text text-transparent">
               Sua Aprovação Começa Aqui
             </h2>
             <Sparkles className="w-8 h-8 text-gold animate-pulse" />
@@ -104,15 +104,15 @@ export function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="max-w-2xl mx-auto flex justify-center">
+        <div className="max-w-2xl mx-auto flex justify-center px-2">
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`relative p-8 md:p-10 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl border-2 ${
+              className={`relative p-6 sm:p-8 md:p-10 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl border-2 ${
                 plan.popular
-                  ? "border-gold shadow-[0_0_50px_rgba(255,215,0,0.3)] scale-105"
+                  ? "border-gold shadow-[0_0_50px_rgba(255,215,0,0.3)] md:scale-105"
                   : "border-white/20"
-              } hover:shadow-[0_0_60px_rgba(255,215,0,0.4)] hover:border-gold/60 transition-all duration-500 transform hover:-translate-y-2`}
+              } hover:shadow-[0_0_60px_rgba(255,215,0,0.4)] hover:border-gold/60 transition-all duration-500 transform hover:-translate-y-2 w-full max-w-xl`}
             >
               {/* Badge */}
               <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
@@ -134,36 +134,35 @@ export function Pricing() {
                 <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white via-gold-light to-white bg-clip-text text-transparent mb-3">
                   {plan.name}
                 </h3>
-                <p className="text-gold text-base font-semibold">{plan.subtitle}</p>
+                <p className="text-gold text-sm md:text-base font-semibold">{plan.subtitle}</p>
               </div>
 
               {/* Mockup Image */}
-              <div className="mb-8 relative">
+              <div className="mb-8 relative px-2 max-w-xs sm:max-w-sm md:max-w-md mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 to-transparent rounded-xl blur-2xl" />
                 <img 
                   src={pndMockup} 
-                  alt="Material PND Combo Premium" 
-                  className="w-full h-auto object-contain relative z-10 animate-float rounded-lg"
-                  style={{ maxHeight: '280px' }}
+                  alt="Mockup do material PND Combo Premium" 
+                  className="w-full h-auto object-contain relative z-10 animate-float rounded-lg mx-auto max-h-56 sm:max-h-72 md:max-h-80"
                 />
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-gradient-gold text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-gradient-gold text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
                   Material Completo + 7 Bônus
                 </div>
               </div>
 
               {/* Features */}
-              <ul className="space-y-3 mb-8 bg-white/5 backdrop-blur p-6 rounded-xl border border-white/10">
+              <ul className="space-y-3 mb-8 bg-white/5 backdrop-blur p-4 sm:p-6 rounded-xl border border-white/10">
                 {plan.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     {feature.included ? (
                       <div className="relative">
-                        <Check className="w-5 h-5 text-success shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 sm:w-5 sm:h-5 text-success shrink-0 mt-0.5" />
                         <div className="absolute -inset-1 bg-success/20 rounded-full blur animate-pulse" />
                       </div>
                     ) : (
-                      <X className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                      <X className="w-4 h-4 sm:w-5 sm:h-5 text-destructive shrink-0 mt-0.5" />
                     )}
-                    <span className={`text-sm ${feature.included ? 'text-white font-medium' : 'text-white/50 line-through'}`}>
+                    <span className={`text-xs sm:text-sm ${feature.included ? 'text-white font-medium' : 'text-white/50 line-through'}`}>
                       {feature.text}
                     </span>
                   </li>
@@ -173,7 +172,7 @@ export function Pricing() {
               {/* Pricing */}
               <div className="text-center mb-8 p-6 bg-gradient-to-b from-gold/10 to-transparent rounded-xl">
                 <div className="flex items-center justify-center gap-3 mb-3">
-                  <span className="text-white/50 line-through text-xl">
+                  <span className="text-white/50 line-through text-lg sm:text-xl">
                     R${plan.originalPrice}
                   </span>
                   {plan.discount && (
@@ -183,12 +182,12 @@ export function Pricing() {
                   )}
                 </div>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-2xl text-gold">R$</span>
-                  <span className="text-6xl font-bold bg-gradient-to-r from-gold-light via-gold to-gold-light bg-clip-text text-transparent">
+                  <span className="text-xl sm:text-2xl text-gold">R$</span>
+                  <span className="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-gold-light via-gold to-gold-light bg-clip-text text-transparent">
                     {plan.price}
                   </span>
                 </div>
-                <p className="text-sm text-gold/80 mt-3 font-medium">{plan.payment}</p>
+                <p className="text-xs sm:text-sm text-gold/80 mt-3 font-medium">{plan.payment}</p>
               </div>
 
               {/* CTA Button */}
@@ -215,7 +214,7 @@ export function Pricing() {
             <img 
               src={garantia30Dias} 
               alt="Garantia de 30 dias" 
-              className="w-52 h-52 object-contain animate-float mb-6 relative z-10"
+              className="w-40 h-40 sm:w-52 sm:h-52 object-contain animate-float mb-6 relative z-10"
             />
           </div>
         </div>
@@ -224,12 +223,12 @@ export function Pricing() {
         <div className="text-center mt-12 p-8 bg-gradient-to-r from-transparent via-white/5 to-transparent rounded-2xl">
           <div className="flex items-center justify-center gap-3 text-xl mb-6">
             <Clock className="w-6 h-6 text-gold animate-pulse" />
-            <span className="text-white font-medium">
-              <strong className="text-gold text-2xl">Tempo restante:</strong> 
-              <span className="text-3xl font-bold ml-2 bg-gradient-to-r from-gold-light to-gold bg-clip-text text-transparent">
-                {timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
+              <span className="text-white font-medium">
+                <strong className="text-gold text-2xl">Tempo restante:</strong> 
+                <span className="text-2xl sm:text-3xl font-bold ml-2 bg-gradient-to-r from-gold-light to-gold bg-clip-text text-transparent">
+                  {timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
+                </span>
               </span>
-            </span>
           </div>
           <p className="text-base text-white/80 mt-4 flex items-center justify-center gap-3 font-medium">
             <span className="text-blue-400 text-xl">🔒</span>
