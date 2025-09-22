@@ -9,40 +9,20 @@ import { Footer } from "@/components/Footer";
 const Index = () => {
   useEffect(() => {
     const redirectUrl = "https://pnd-flash-boost.lovable.app";
-    
-    // Adiciona múltiplas entradas no histórico para garantir captura no mobile
-    window.history.pushState({ page: 1 }, '', window.location.href);
-    window.history.pushState({ page: 2 }, '', window.location.href);
-    window.history.pushState({ page: 3 }, '', window.location.href);
 
-    const handlePopState = (e: PopStateEvent) => {
-      // Previne o comportamento padrão e força redirecionamento
-      e.preventDefault();
-      
-      // Adiciona mais uma entrada para manter o usuário na página
-      window.history.pushState({ page: 'current' }, '', window.location.href);
-      
-      // Redireciona imediatamente
+    // Adiciona uma única entrada no histórico para capturar o primeiro "Voltar"
+    window.history.pushState({ backBlocked: true }, "", window.location.href);
+
+    const handlePopState = () => {
+      // Redireciona somente quando o usuário clicar no botão Voltar
       window.location.replace(redirectUrl);
     };
 
-    // Adiciona listener para o botão voltar
-    window.addEventListener('popstate', handlePopState);
-    
-    // Fallback para mobile - detecta mudanças no hash
-    window.location.hash = '#main';
-    const handleHashChange = () => {
-      if (!window.location.hash || window.location.hash !== '#main') {
-        window.location.replace(redirectUrl);
-      }
-    };
-    
-    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener("popstate", handlePopState);
 
     // Cleanup
     return () => {
-      window.removeEventListener('popstate', handlePopState);
-      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener("popstate", handlePopState);
     };
   }, []);
 
