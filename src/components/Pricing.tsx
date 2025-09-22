@@ -63,7 +63,7 @@ export function Pricing() {
   };
 
   return (
-    <section id="pricing" className="py-20 bg-gradient-to-b from-navy-dark via-navy-dark to-navy-dark/95 text-white relative overflow-hidden">
+    <section id="pricing" className="py-20 bg-navy-dark text-white relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="hidden md:block absolute top-20 left-10 w-72 h-72 bg-gold/5 rounded-full blur-3xl animate-pulse" />
@@ -104,15 +104,15 @@ export function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="max-w-2xl mx-auto flex justify-center px-2">
+        <div className="max-w-md mx-auto px-4">
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`relative p-6 sm:p-8 md:p-10 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl border-2 ${
+              className={`relative p-6 sm:p-8 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl border-2 ${
                 plan.popular
-                  ? "border-gold shadow-[0_0_50px_rgba(255,215,0,0.3)] md:scale-105"
+                  ? "border-gold shadow-[0_0_30px_rgba(255,215,0,0.2)]"
                   : "border-white/20"
-              } hover:shadow-[0_0_60px_rgba(255,215,0,0.4)] hover:border-gold/60 transition-all duration-500 transform hover:-translate-y-2 w-full max-w-xl`}
+              } hover:shadow-[0_0_40px_rgba(255,215,0,0.3)] hover:border-gold/60 transition-all duration-500`}
             >
               {/* Badge */}
               <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
@@ -130,39 +130,39 @@ export function Pricing() {
               )}
 
               {/* Plan Name */}
-              <div className="text-center mb-8 mt-4">
-                <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white via-gold-light to-white bg-clip-text text-transparent mb-3">
+              <div className="text-center mb-6 mt-4">
+                <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-white via-gold-light to-white bg-clip-text text-transparent mb-2">
                   {plan.name}
                 </h3>
-                <p className="text-gold text-sm md:text-base font-semibold">{plan.subtitle}</p>
+                <p className="text-gold text-sm font-semibold">{plan.subtitle}</p>
               </div>
 
               {/* Mockup Image */}
-              <div className="mb-8 relative px-2 max-w-xs sm:max-w-sm md:max-w-md mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 to-transparent rounded-xl blur-2xl" />
+              <div className="mb-6 relative px-4 max-w-[240px] mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-500/10 to-transparent rounded-xl blur-xl" />
                 <img 
                   src={pndMockup} 
-                  alt="Mockup do material PND Combo Premium" 
-                  className="w-full h-auto object-contain relative z-10 animate-float rounded-lg mx-auto max-h-56 sm:max-h-72 md:max-h-80"
+                  alt="Material PND Combo Premium" 
+                  className="w-full h-auto object-contain relative z-10 animate-float rounded-lg"
                 />
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-gradient-gold text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-gradient-gold text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
                   Material Completo + 7 Bônus
                 </div>
               </div>
 
               {/* Features */}
-              <ul className="space-y-3 mb-8 bg-white/5 backdrop-blur p-4 sm:p-6 rounded-xl border border-white/10">
+              <ul className="space-y-2 mb-6 bg-white/5 backdrop-blur p-4 rounded-xl border border-white/10">
                 {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
+                  <li key={idx} className="flex items-start gap-2">
                     {feature.included ? (
                       <div className="relative">
-                        <Check className="w-4 h-4 sm:w-5 sm:h-5 text-success shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 text-success shrink-0 mt-0.5" />
                         <div className="absolute -inset-1 bg-success/20 rounded-full blur animate-pulse" />
                       </div>
                     ) : (
-                      <X className="w-4 h-4 sm:w-5 sm:h-5 text-destructive shrink-0 mt-0.5" />
+                      <X className="w-4 h-4 text-destructive shrink-0 mt-0.5" />
                     )}
-                    <span className={`text-xs sm:text-sm ${feature.included ? 'text-white font-medium' : 'text-white/50 line-through'}`}>
+                    <span className={`text-xs sm:text-sm ${feature.included ? 'text-white' : 'text-white/50 line-through'}`}>
                       {feature.text}
                     </span>
                   </li>
@@ -170,24 +170,24 @@ export function Pricing() {
               </ul>
 
               {/* Pricing */}
-              <div className="text-center mb-8 p-6 bg-gradient-to-b from-gold/10 to-transparent rounded-xl">
-                <div className="flex items-center justify-center gap-3 mb-3">
-                  <span className="text-white/50 line-through text-lg sm:text-xl">
+              <div className="text-center mb-6 p-4 bg-gradient-to-b from-gold/10 to-transparent rounded-xl">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <span className="text-white/50 line-through text-base">
                     R${plan.originalPrice}
                   </span>
                   {plan.discount && (
-                    <Badge className="bg-gradient-to-r from-destructive to-purple-500 text-white font-bold px-3 py-1 animate-pulse">
+                    <Badge className="bg-gradient-to-r from-destructive to-purple-500 text-white font-bold px-2 py-0.5 text-xs">
                       {plan.discount}
                     </Badge>
                   )}
                 </div>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-xl sm:text-2xl text-gold">R$</span>
-                  <span className="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-gold-light via-gold to-gold-light bg-clip-text text-transparent">
+                  <span className="text-lg text-gold">R$</span>
+                  <span className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-gold-light via-gold to-gold-light bg-clip-text text-transparent">
                     {plan.price}
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-gold/80 mt-3 font-medium">{plan.payment}</p>
+                <p className="text-xs text-gold/80 mt-2 font-medium">{plan.payment}</p>
               </div>
 
               {/* CTA Button */}
@@ -220,18 +220,18 @@ export function Pricing() {
         </div>
 
         {/* Footer Timer */}
-        <div className="text-center mt-12 p-8 bg-gradient-to-r from-transparent via-white/5 to-transparent rounded-2xl">
-          <div className="flex items-center justify-center gap-3 text-xl mb-6">
-            <Clock className="w-6 h-6 text-gold animate-pulse" />
-              <span className="text-white font-medium">
-                <strong className="text-gold text-2xl">Tempo restante:</strong> 
-                <span className="text-2xl sm:text-3xl font-bold ml-2 bg-gradient-to-r from-gold-light to-gold bg-clip-text text-transparent">
-                  {timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
-                </span>
+        <div className="text-center mt-12 p-6 bg-gradient-to-r from-transparent via-white/5 to-transparent rounded-2xl">
+          <div className="flex items-center justify-center gap-2 text-lg mb-4">
+            <Clock className="w-5 h-5 text-gold animate-pulse" />
+            <span className="text-white font-medium">
+              <strong className="text-gold">Tempo restante:</strong> 
+              <span className="text-xl sm:text-2xl font-bold ml-2 bg-gradient-to-r from-gold-light to-gold bg-clip-text text-transparent">
+                {timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
               </span>
+            </span>
           </div>
-          <p className="text-base text-white/80 mt-4 flex items-center justify-center gap-3 font-medium">
-            <span className="text-blue-400 text-xl">🔒</span>
+          <p className="text-sm text-white/80 mt-4 flex items-center justify-center gap-2 font-medium">
+            <span className="text-blue-400">🔒</span>
             Compra 100% segura. Ou você ama, ou devolvemos seu dinheiro.
           </p>
         </div>
