@@ -181,9 +181,9 @@ export function Pricing() {
                 variant={plan.buttonVariant}
                 onClick={() => handlePurchase(plan.name)}
               >
-                <span className="relative z-10 font-bold text-lg flex items-center justify-center gap-2">
-                  {plan.cta}
-                  <Sparkles className="w-5 h-5 animate-pulse" />
+                <span className="relative z-10 font-bold text-sm sm:text-lg flex items-center justify-center gap-2 px-2">
+                  <span className="break-words text-center">{plan.cta}</span>
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 animate-pulse flex-shrink-0" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-gold via-gold-light to-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Button>
