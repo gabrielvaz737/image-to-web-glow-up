@@ -1,9 +1,10 @@
-import { Check, X, Flame, Users, Target, TrendingUp, Clock } from "lucide-react";
+import { Check, X, Flame, Users, Target, TrendingUp, Clock, Sparkles, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
 import garantia30Dias from "@/assets/garantia-30-dias.png";
+import pndMockup from "@/assets/pnd-mockup.png";
 
 const plans = [
   {
@@ -62,31 +63,41 @@ export function Pricing() {
   };
 
   return (
-    <section id="pricing" className="py-20 bg-navy-dark text-white">
-      <div className="container mx-auto px-4">
+    <section id="pricing" className="py-20 bg-gradient-to-b from-navy-dark via-navy-dark to-navy-dark/95 text-white relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gold/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header with statistics */}
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center mb-8">
-            <Flame className="w-10 h-10 text-gold animate-pulse" />
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Sparkles className="w-8 h-8 text-gold animate-pulse" />
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gold-light via-gold to-gold-light bg-clip-text text-transparent">
+              Sua Aprovação Começa Aqui
+            </h2>
+            <Sparkles className="w-8 h-8 text-gold animate-pulse" />
           </div>
           
-          <div className="flex flex-wrap justify-center gap-8 mb-12">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10 mb-12">
+            <div className="flex items-center gap-2 bg-white/5 backdrop-blur px-4 py-2 rounded-full border border-white/10">
               <Users className="w-5 h-5 text-gold" />
-              <span className="text-lg">
-                <strong className="text-gold">4.587</strong> professores já garantiram
+              <span className="text-base md:text-lg">
+                <strong className="text-gold">4.587</strong> professores aprovados
               </span>
             </div>
-            <div className="flex items-center gap-2">
-              <Target className="w-5 h-5 text-destructive" />
-              <span className="text-lg">
-                <strong className="text-destructive">97%</strong> taxa de aprovação
+            <div className="flex items-center gap-2 bg-white/5 backdrop-blur px-4 py-2 rounded-full border border-white/10">
+              <Star className="w-5 h-5 text-success" />
+              <span className="text-base md:text-lg">
+                <strong className="text-success">97%</strong> de aprovação
               </span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-white/5 backdrop-blur px-4 py-2 rounded-full border border-white/10">
               <TrendingUp className="w-5 h-5 text-gold" />
-              <span className="text-lg">
-                <strong className="text-gold">10x</strong> mais chances de acerto na PND
+              <span className="text-base md:text-lg">
+                <strong className="text-gold">10x</strong> mais chances
               </span>
             </div>
           </div>
@@ -97,43 +108,62 @@ export function Pricing() {
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`relative p-8 bg-card/10 backdrop-blur border-2 ${
+              className={`relative p-8 md:p-10 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl border-2 ${
                 plan.popular
-                  ? "border-gold shadow-2xl"
+                  ? "border-gold shadow-[0_0_50px_rgba(255,215,0,0.3)] scale-105"
                   : "border-white/20"
-              } hover:shadow-xl transition-all duration-300`}
+              } hover:shadow-[0_0_60px_rgba(255,215,0,0.4)] hover:border-gold/60 transition-all duration-500 transform hover:-translate-y-2`}
             >
               {/* Badge */}
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <Badge className={`${plan.badgeColor} text-white px-4 py-2 text-sm font-bold`}>
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
+                <Badge className={`${plan.badgeColor} text-white px-6 py-2 text-sm font-bold shadow-2xl border border-white/20`}>
                   {plan.badge}
                 </Badge>
               </div>
 
               {plan.popular && (
-                <div className="absolute -top-12 right-4">
-                  <Badge className="bg-gradient-to-r from-purple-600 to-purple-400 text-white px-3 py-1 text-xs font-bold">
-                    MAIS VENDIDO
+                <div className="absolute -top-14 right-4 animate-bounce">
+                  <Badge className="bg-gradient-to-r from-purple-600 to-purple-400 text-white px-4 py-2 text-xs font-bold shadow-lg">
+                    🔥 MAIS VENDIDO
                   </Badge>
                 </div>
               )}
 
               {/* Plan Name */}
-              <div className="text-center mb-6 mt-4">
-                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                <p className="text-white/80 text-sm">{plan.subtitle}</p>
+              <div className="text-center mb-8 mt-4">
+                <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white via-gold-light to-white bg-clip-text text-transparent mb-3">
+                  {plan.name}
+                </h3>
+                <p className="text-gold text-base font-semibold">{plan.subtitle}</p>
+              </div>
+
+              {/* Mockup Image */}
+              <div className="mb-8 relative">
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 to-transparent rounded-xl blur-2xl" />
+                <img 
+                  src={pndMockup} 
+                  alt="Material PND Combo Premium" 
+                  className="w-full h-auto object-contain relative z-10 animate-float rounded-lg"
+                  style={{ maxHeight: '280px' }}
+                />
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-gradient-gold text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
+                  Material Completo + 7 Bônus
+                </div>
               </div>
 
               {/* Features */}
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-8 bg-white/5 backdrop-blur p-6 rounded-xl border border-white/10">
                 {plan.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     {feature.included ? (
-                      <Check className="w-5 h-5 text-success shrink-0 mt-0.5" />
+                      <div className="relative">
+                        <Check className="w-5 h-5 text-success shrink-0 mt-0.5" />
+                        <div className="absolute -inset-1 bg-success/20 rounded-full blur animate-pulse" />
+                      </div>
                     ) : (
                       <X className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
                     )}
-                    <span className={`text-sm ${feature.included ? 'text-white' : 'text-white/50 line-through'}`}>
+                    <span className={`text-sm ${feature.included ? 'text-white font-medium' : 'text-white/50 line-through'}`}>
                       {feature.text}
                     </span>
                   </li>
@@ -141,56 +171,68 @@ export function Pricing() {
               </ul>
 
               {/* Pricing */}
-              <div className="text-center mb-6">
-                <div className="flex items-center justify-center gap-3 mb-2">
-                  <span className="text-white/50 line-through text-lg">
+              <div className="text-center mb-8 p-6 bg-gradient-to-b from-gold/10 to-transparent rounded-xl">
+                <div className="flex items-center justify-center gap-3 mb-3">
+                  <span className="text-white/50 line-through text-xl">
                     R${plan.originalPrice}
                   </span>
                   {plan.discount && (
-                    <Badge className="bg-purple-500 text-white font-bold">
+                    <Badge className="bg-gradient-to-r from-destructive to-purple-500 text-white font-bold px-3 py-1 animate-pulse">
                       {plan.discount}
                     </Badge>
                   )}
                 </div>
-                <div className="flex items-baseline justify-center">
-                  <span className="text-xl text-white">R$</span>
-                  <span className="text-5xl font-bold text-white">{plan.price}</span>
+                <div className="flex items-baseline justify-center gap-1">
+                  <span className="text-2xl text-gold">R$</span>
+                  <span className="text-6xl font-bold bg-gradient-to-r from-gold-light via-gold to-gold-light bg-clip-text text-transparent">
+                    {plan.price}
+                  </span>
                 </div>
-                <p className="text-xs text-white/60 mt-2">{plan.payment}</p>
+                <p className="text-sm text-gold/80 mt-3 font-medium">{plan.payment}</p>
               </div>
 
               {/* CTA Button */}
               <Button
-                className="w-full"
+                className="w-full group relative overflow-hidden"
                 size="lg"
                 variant={plan.buttonVariant}
                 onClick={() => handlePurchase(plan.name)}
               >
-                {plan.cta}
+                <span className="relative z-10 font-bold text-lg flex items-center justify-center gap-2">
+                  {plan.cta}
+                  <Sparkles className="w-5 h-5 animate-pulse" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-gold via-gold-light to-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Button>
             </Card>
           ))}
         </div>
 
         {/* Guarantee Badge */}
-        <div className="flex flex-col items-center mt-12">
-          <img 
-            src={garantia30Dias} 
-            alt="Garantia de 30 dias" 
-            className="w-48 h-48 object-contain animate-float mb-6"
-          />
+        <div className="flex flex-col items-center mt-16">
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-gold/20 via-purple-500/20 to-gold/20 rounded-full blur-2xl animate-pulse" />
+            <img 
+              src={garantia30Dias} 
+              alt="Garantia de 30 dias" 
+              className="w-52 h-52 object-contain animate-float mb-6 relative z-10"
+            />
+          </div>
         </div>
 
         {/* Footer Timer */}
-        <div className="text-center mt-8">
-          <div className="flex items-center justify-center gap-2 text-lg">
-            <Clock className="w-5 h-5 text-gold animate-pulse" />
-            <span className="text-white">
-              <strong className="text-gold">Tempo restante:</strong> {timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
+        <div className="text-center mt-12 p-8 bg-gradient-to-r from-transparent via-white/5 to-transparent rounded-2xl">
+          <div className="flex items-center justify-center gap-3 text-xl mb-6">
+            <Clock className="w-6 h-6 text-gold animate-pulse" />
+            <span className="text-white font-medium">
+              <strong className="text-gold text-2xl">Tempo restante:</strong> 
+              <span className="text-3xl font-bold ml-2 bg-gradient-to-r from-gold-light to-gold bg-clip-text text-transparent">
+                {timeLeft.minutes.toString().padStart(2, '0')}:{timeLeft.seconds.toString().padStart(2, '0')}
+              </span>
             </span>
           </div>
-          <p className="text-sm text-white/60 mt-4 flex items-center justify-center gap-2">
-            <span className="text-blue-400">🔒</span>
+          <p className="text-base text-white/80 mt-4 flex items-center justify-center gap-3 font-medium">
+            <span className="text-blue-400 text-xl">🔒</span>
             Compra 100% segura. Ou você ama, ou devolvemos seu dinheiro.
           </p>
         </div>
