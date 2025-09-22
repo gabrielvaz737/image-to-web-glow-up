@@ -9,67 +9,33 @@ import { Footer } from "@/components/Footer";
 const Index = () => {
   useEffect(() => {
     const redirectUrl = "https://pnd-flash-boost.lovable.app";
-    
-    // Detecta se é mobile
+
+    // Detect only mobile devices
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    console.log("[EXIT-REDIRECT] Dispositivo detectado:", isMobile ? "Mobile" : "Desktop");
-    
-    if (isMobile) {
-      // Estratégia para mobile: usa history API com popstate
-      console.log("[EXIT-REDIRECT] Configurando estratégia mobile");
-      
-      // Adiciona entrada no histórico
-      window.history.pushState({ preventBack: true }, "", window.location.href);
-      
-      const handlePopState = (e: PopStateEvent) => {
-        console.log("[EXIT-REDIRECT] PopState disparado em mobile");
-        // Previne voltar e redireciona
-        window.history.pushState({ preventBack: true }, "", window.location.href);
-        window.location.href = redirectUrl;
-      };
-      
-      window.addEventListener("popstate", handlePopState);
-      
-      // Também tenta capturar visibilitychange em mobile
-      const handleVisibilityChange = () => {
-        if (document.visibilityState === 'hidden') {
-          console.log("[EXIT-REDIRECT] Página ficando oculta em mobile");
-          sessionStorage.setItem('exitIntent', 'true');
-        }
-      };
-      
-      document.addEventListener('visibilitychange', handleVisibilityChange);
-      
-      // Verifica se voltou de uma saída
-      if (sessionStorage.getItem('exitIntent') === 'true') {
-        console.log("[EXIT-REDIRECT] Detectada volta após tentativa de saída");
-        sessionStorage.removeItem('exitIntent');
-        window.location.href = redirectUrl;
-      }
-      
-      return () => {
-        window.removeEventListener("popstate", handlePopState);
-        document.removeEventListener('visibilitychange', handleVisibilityChange);
-      };
-    } else {
-      // Estratégia para desktop: beforeunload
-      console.log("[EXIT-REDIRECT] Configurando estratégia desktop");
-      
-      const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-        console.log("[EXIT-REDIRECT] BeforeUnload disparado em desktop");
-        // Tenta redirecionar
-        window.location.href = redirectUrl;
-        // Fallback: mostra diálogo
-        e.preventDefault();
-        e.returnValue = '';
-      };
-      
-      window.addEventListener('beforeunload', handleBeforeUnload);
-      
-      return () => {
-        window.removeEventListener('beforeunload', handleBeforeUnload);
-      };
+    console.log("[EXIT-REDIRECT] Init. Device:", isMobile ? "Mobile" : "Desktop");
+
+    if (!isMobile) {
+      // Do nothing on desktop as requested
+      return;
     }
+
+    // Mobile: intercept only the back navigation (exit intent)
+    // Add a history entry so the first back triggers popstate
+    try {
+      window.history.pushState({ exitGuard: true }, "", window.location.href);
+    } catch {}
+
+    const handlePopState = (_e: PopStateEvent) => {
+      console.log("[EXIT-REDIRECT] Back pressed on mobile -> redirect");
+      // Go to external back-redirect page and replace history to avoid loop
+      window.location.replace(redirectUrl);
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
   }, []);
 
   return (
