@@ -56,8 +56,8 @@ export function Pricing() {
   }, []);
 
   const handlePurchase = (planName: string) => {
-    // Usar sempre o link do PND COMBO PREMIUM para o plano único de R$ 27,90
-    const checkoutLink = 'https://pay.kiwify.com.br/0FNVG4I';
+    // Usar o novo link de checkout criado para o plano único de R$ 27,90
+    const checkoutLink = 'https://pay.kiwify.com.br/QFSZyjq';
     window.open(checkoutLink, '_blank');
   };
 
