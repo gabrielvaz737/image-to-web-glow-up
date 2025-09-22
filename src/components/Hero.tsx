@@ -98,7 +98,7 @@ export function Hero() {
             <div className="mb-8">
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                   De <span className="line-through text-white/60">R$ 89,90</span> por apenas <span className="text-gold">R$ 10,90</span> 
+                   De <span className="line-through text-white/60">R$ 129,70</span> por apenas <span className="text-gold">R$ 27,90</span>
                 </div>
                 <Badge className="bg-destructive text-destructive-foreground px-4 py-2 text-sm font-semibold">
                   OFERTA POR TEMPO LIMITADO
@@ -134,7 +134,7 @@ export function Hero() {
                 className="text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-5 sm:py-6 md:py-7 font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 w-full sm:w-auto max-w-md mx-auto"
                 onClick={handleCTAClick}
               >
-                QUERO POR R$ 10,90
+                QUERO POR R$ 27,90
               </Button>
             </div>
           </div>

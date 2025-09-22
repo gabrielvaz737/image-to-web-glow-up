@@ -28,7 +28,7 @@ const BackRedirect = () => {
   };
 
   const handleContinue = () => {
-    window.location.href = 'https://pay.kiwify.com.br/0FNVG4I'; // Combo Premium com desconto
+    window.location.href = 'https://pay.kiwify.com.br/QFSZyjq'; // Novo checkout R$ 27,90
   };
 
   const handleBack = () => {
@@ -53,7 +53,7 @@ const BackRedirect = () => {
 
           <div className="bg-primary/5 rounded-xl p-6 mb-8">
             <h2 className="text-2xl font-bold mb-4 text-primary">
-              🎁 DESCONTO ESPECIAL DE 40%
+              🎁 DESCONTO ESPECIAL DE 78%
             </h2>
             
             <div className="space-y-3 text-left max-w-md mx-auto mb-6">
@@ -76,8 +76,8 @@ const BackRedirect = () => {
             </div>
 
             <div className="mb-4">
-              <p className="text-sm text-muted-foreground line-through">De R$ 97,00</p>
-              <p className="text-4xl font-bold text-primary">Por apenas R$ 57,00</p>
+              <p className="text-sm text-muted-foreground line-through">De R$ 129,70</p>
+              <p className="text-4xl font-bold text-primary">Por apenas R$ 27,90</p>
             </div>
 
             <div className="bg-destructive/10 rounded-lg p-3 mb-6 inline-flex items-center gap-2">
