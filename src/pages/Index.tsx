@@ -9,53 +9,67 @@ import { Footer } from "@/components/Footer";
 const Index = () => {
   useEffect(() => {
     const redirectUrl = "https://pnd-flash-boost.lovable.app";
-    let isNavigatingInternally = false;
-
-    // Marca navegações internas para não disparar o redirect
-    const markInternalNavigation = () => {
-      isNavigatingInternally = true;
-      setTimeout(() => {
-        isNavigatingInternally = false;
-      }, 100);
-    };
-
-    // Adiciona listeners em todos os links e botões para marcar navegação interna
-    const handleClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === 'A' || target.tagName === 'BUTTON' || target.closest('a') || target.closest('button')) {
-        markInternalNavigation();
-      }
-    };
-
-    // Detecta tentativa real de sair da página
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      if (!isNavigatingInternally) {
-        // Tenta redirecionar imediatamente
+    
+    // Detecta se é mobile
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    console.log("[EXIT-REDIRECT] Dispositivo detectado:", isMobile ? "Mobile" : "Desktop");
+    
+    if (isMobile) {
+      // Estratégia para mobile: usa history API com popstate
+      console.log("[EXIT-REDIRECT] Configurando estratégia mobile");
+      
+      // Adiciona entrada no histórico
+      window.history.pushState({ preventBack: true }, "", window.location.href);
+      
+      const handlePopState = (e: PopStateEvent) => {
+        console.log("[EXIT-REDIRECT] PopState disparado em mobile");
+        // Previne voltar e redireciona
+        window.history.pushState({ preventBack: true }, "", window.location.href);
         window.location.href = redirectUrl;
-        // Alguns navegadores bloqueiam, então mostramos um diálogo
+      };
+      
+      window.addEventListener("popstate", handlePopState);
+      
+      // Também tenta capturar visibilitychange em mobile
+      const handleVisibilityChange = () => {
+        if (document.visibilityState === 'hidden') {
+          console.log("[EXIT-REDIRECT] Página ficando oculta em mobile");
+          sessionStorage.setItem('exitIntent', 'true');
+        }
+      };
+      
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+      
+      // Verifica se voltou de uma saída
+      if (sessionStorage.getItem('exitIntent') === 'true') {
+        console.log("[EXIT-REDIRECT] Detectada volta após tentativa de saída");
+        sessionStorage.removeItem('exitIntent');
+        window.location.href = redirectUrl;
+      }
+      
+      return () => {
+        window.removeEventListener("popstate", handlePopState);
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
+      };
+    } else {
+      // Estratégia para desktop: beforeunload
+      console.log("[EXIT-REDIRECT] Configurando estratégia desktop");
+      
+      const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+        console.log("[EXIT-REDIRECT] BeforeUnload disparado em desktop");
+        // Tenta redirecionar
+        window.location.href = redirectUrl;
+        // Fallback: mostra diálogo
         e.preventDefault();
         e.returnValue = '';
-      }
-    };
-
-    // Fallback para mobile que não suporta beforeunload
-    const handlePageHide = (e: PageTransitionEvent) => {
-      if (!e.persisted && !isNavigatingInternally) {
-        // Redireciona quando a página está sendo ocultada definitivamente
-        window.location.replace(redirectUrl);
-      }
-    };
-
-    // Adiciona todos os event listeners
-    document.addEventListener('click', handleClick);
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    window.addEventListener('pagehide', handlePageHide);
-
-    return () => {
-      document.removeEventListener('click', handleClick);
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-      window.removeEventListener('pagehide', handlePageHide);
-    };
+      };
+      
+      window.addEventListener('beforeunload', handleBeforeUnload);
+      
+      return () => {
+        window.removeEventListener('beforeunload', handleBeforeUnload);
+      };
+    }
   }, []);
 
   return (
