@@ -182,7 +182,7 @@ export function Hero() {
           </div>
 
           {/* Countdown */}
-          <CountdownTimer targetDate="2025-12-01T10:00:00" />
+          <CountdownTimer targetDate="2025-10-26T10:00:00" />
 
           {/* Trust indicators */}
           <div className="flex flex-wrap justify-center items-center gap-6 pt-8">
