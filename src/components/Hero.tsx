@@ -77,6 +77,17 @@ export function Hero() {
             E se você pudesse se preparar para QUALQUER concurso estadual da banca FGV sabendo exatamente o que mais cai, o que quase nunca cai e como a FGV formula suas questões?
           </p>
 
+          {/* State Coverage Banner */}
+          <div className="p-4 bg-gold/10 border-2 border-gold rounded-lg max-w-3xl mx-auto">
+            <h3 className="text-gold font-bold text-lg mb-2 flex items-center justify-center gap-2">
+              <span>🔥</span> SERVE PARA TODOS OS ESTADOS <span>🔥</span>
+            </h3>
+            <p className="text-white/90 text-base leading-relaxed">
+              Este Guia Direcionado funciona para <strong className="text-gold">QUALQUER concurso estadual onde a banca é FGV</strong>.
+              A FGV mantém o mesmo padrão de cobrança em todo o Brasil — por isso o guia serve para o seu estado também.
+            </p>
+          </div>
+
           {/* Special Offer Section */}
           <div className="bg-gradient-to-b from-gold/5 to-transparent rounded-3xl p-8 my-12 max-w-4xl mx-auto">
             {/* Apostila Mockup */}

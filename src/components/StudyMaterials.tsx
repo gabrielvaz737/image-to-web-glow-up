@@ -151,6 +151,17 @@ export function StudyMaterials() {
           </Carousel>
         </div>
 
+        {/* State Coverage Notice */}
+        <div className="mt-12 p-6 bg-navy-light/40 border border-gold/20 rounded-lg max-w-3xl mx-auto text-center">
+          <h3 className="text-gold font-bold text-xl mb-3">Compatível com todos os estados:</h3>
+          <p className="text-white/90 text-base mb-2">
+            SP, RJ, MG, BA, CE, PA, GO, PR, RS, AM, MA, PE, SC e qualquer outro estado cuja banca seja FGV.
+          </p>
+          <p className="text-gold font-semibold text-lg">
+            👉 Se a banca é FGV, este guia funciona para você.
+          </p>
+        </div>
+
         {/* CTA Button */}
         <div className="flex justify-center mt-12">
           <button

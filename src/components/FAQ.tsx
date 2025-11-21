@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: "Serve para concursos de qual estado?",
-    answer: "O Guia Direcionado FGV serve para TODOS os concursos estaduais para professores com banca FGV, pois a banca mantém um padrão de cobrança independente do estado.",
+    answer: "Para QUALQUER estado onde a banca é FGV. SP, RJ, CE, PA, MG, BA, GO, AM, PR, RS, MA… 👉 A FGV pode mudar de estado, mas não muda o estilo da prova.",
   },
   {
     question: "E se o edital ainda não saiu?",
