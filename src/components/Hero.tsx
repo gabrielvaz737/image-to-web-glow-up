@@ -1,7 +1,6 @@
 import { Check, Trophy, Calendar, Users, BookOpen, Target, Clock, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CountdownTimer } from "./CountdownTimer";
 import logo from "@/assets/logo-fgv-decodificada.png";
 import apostilaOriginal from "@/assets/apostila-original.png";
 import { useState, useEffect } from "react";
@@ -191,9 +190,6 @@ export function Hero() {
               VER DEPOIMENTOS
             </Button>
           </div>
-
-          {/* Countdown */}
-          <CountdownTimer targetDate="2025-10-26T10:00:00" />
 
           {/* Trust indicators */}
           <div className="flex flex-wrap justify-center items-center gap-6 pt-8">
