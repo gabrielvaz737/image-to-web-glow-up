@@ -174,6 +174,13 @@ export function Pricing() {
                 <p className="text-xs text-gold/80 mt-2 font-medium">{plan.payment}</p>
               </div>
 
+              {/* State Coverage Notice */}
+              <div className="mb-4 p-3 bg-gold/10 border border-gold/30 rounded-lg text-center">
+                <p className="text-white text-sm font-medium leading-relaxed">
+                  Não importa de qual estado você é — se a banca é FGV, este guia é seu atalho para estudar com precisão.
+                </p>
+              </div>
+
               {/* CTA Button */}
               <Button
                 className="w-full group relative overflow-hidden"
