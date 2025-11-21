@@ -2,7 +2,7 @@ import { Check, Trophy, Calendar, Users, BookOpen, Target, Clock, Mail } from "l
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CountdownTimer } from "./CountdownTimer";
-import logo from "@/assets/logo-conquista.jpeg";
+import logo from "@/assets/logo-fgv-decodificada.png";
 import apostilaOriginal from "@/assets/apostila-original.png";
 import { useState, useEffect } from "react";
 
@@ -43,8 +43,8 @@ export function Hero() {
           <div className="flex justify-center mb-8 animate-float">
             <img 
               src={logo} 
-              alt="Conquista Concursos" 
-              className="w-32 h-32 rounded-full shadow-2xl ring-4 ring-gold/20"
+              alt="FGV Decodificada" 
+              className="w-64 h-auto drop-shadow-2xl"
             />
           </div>
 
