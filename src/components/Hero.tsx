@@ -47,11 +47,6 @@ export function Hero() {
             />
           </div>
 
-          {/* Badge */}
-          <Badge className="bg-success text-success-foreground px-6 py-2 text-lg font-semibold">
-            🎯 GUIA DIRECIONADO FGV
-          </Badge>
-
           {/* Main heading */}
           <h1 className="font-playfair text-5xl md:text-7xl font-bold text-navy-dark leading-tight">
             PROFESSORES
