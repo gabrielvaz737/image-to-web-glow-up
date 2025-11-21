@@ -44,7 +44,7 @@ export function Hero() {
             <img 
               src={logo} 
               alt="FGV Decodificada" 
-              className="w-48 h-48 object-cover rounded-full shadow-2xl ring-4 ring-gold/20"
+              className="w-32 h-32 object-cover rounded-full shadow-2xl ring-4 ring-gold/20"
             />
           </div>
 
