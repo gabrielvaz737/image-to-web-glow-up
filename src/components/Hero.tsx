@@ -50,14 +50,14 @@ export function Hero() {
 
           {/* Badge */}
           <Badge className="bg-success text-success-foreground px-6 py-2 text-lg font-semibold">
-            🎯 EDITAL PUBLICADO
+            🎯 GUIA DIRECIONADO FGV
           </Badge>
 
           {/* Main heading */}
           <h1 className="font-playfair text-5xl md:text-7xl font-bold text-navy-dark leading-tight">
-            PROVA NACIONAL
+            PROFESSORES
             <span className="block text-transparent bg-clip-text bg-gradient-gold">
-              DOCENTE
+              ESTADUAIS
             </span>
           </h1>
 
@@ -65,7 +65,7 @@ export function Hero() {
           <div className="bg-gradient-gold p-1 rounded-2xl max-w-4xl mx-auto my-6">
             <div className="bg-navy-dark rounded-xl p-6 shadow-2xl">
               <p className="text-lg md:text-2xl font-bold text-white">
-                🎯 Quem já decifrou o INEP entrega tudo mastigado pra você chegue na PND sabendo exatamente o que vai cair
+                🎯 Quem já decifrou a FGV entrega tudo mastigado para você estudar com precisão — sem perder tempo com conteúdos que nunca caem
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@ export function Hero() {
           <p className="text-xl md:text-2xl font-semibold max-w-3xl mx-auto text-white" style={{
             textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5), 0px 0px 20px rgba(0, 0, 0, 0.3)'
           }}>
-            E se você pudesse estudar com um material que antecipa com precisão o estilo do INEP e te prepara para acertar exatamente o que será cobrado na Prova Nacional Docente?
+            E se você pudesse se preparar para QUALQUER concurso estadual da banca FGV sabendo exatamente o que mais cai, o que quase nunca cai e como a FGV formula suas questões?
           </p>
 
           {/* Special Offer Section */}
@@ -88,7 +88,7 @@ export function Hero() {
               ) : (
                 <img 
                   src={processedImage || apostilaOriginal} 
-                  alt="Apostila PND - Prova Nacional Docente" 
+                  alt="Guia Direcionado FGV - Professores Estaduais" 
                   className="w-full max-w-md mx-auto h-auto drop-shadow-2xl animate-float"
                 />
               )}
@@ -110,15 +110,15 @@ export function Hero() {
             <div className="grid md:grid-cols-2 gap-4 mb-8 max-w-2xl mx-auto">
               <div className="flex items-start gap-3">
                 <BookOpen className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
-                <span className="text-white font-semibold">Apostila completa e atualizada</span>
+                <span className="text-white font-semibold">Guia completo e atualizado</span>
               </div>
               <div className="flex items-start gap-3">
                 <Target className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
-                <span className="text-white font-semibold">Questões comentadas estilo INEP</span>
+                <span className="text-white font-semibold">Questões comentadas estilo FGV</span>
               </div>
               <div className="flex items-start gap-3">
                 <Trophy className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
-                <span className="text-white font-semibold">Simulados exclusivos</span>
+                <span className="text-white font-semibold">Mapas e roteiros de estudo</span>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-gold mt-1 flex-shrink-0" />
@@ -143,7 +143,7 @@ export function Hero() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 my-12">
             <div className="text-center">
               <div className="text-4xl font-bold text-gold">97%</div>
-              <div className="text-sm text-muted-foreground">Taxa de Aprovação</div>
+              <div className="text-sm text-muted-foreground">Taxa de Satisfação</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-gold">5.780</div>
@@ -154,8 +154,8 @@ export function Hero() {
               <div className="text-sm text-muted-foreground">Anos de Experiência</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-gold">R$ 5.700</div>
-              <div className="text-sm text-muted-foreground">Salário Inicial</div>
+              <div className="text-4xl font-bold text-gold">R$ 4.800</div>
+              <div className="text-sm text-muted-foreground">Salário Inicial Médio</div>
             </div>
           </div>
 
@@ -186,7 +186,7 @@ export function Hero() {
 
           {/* Trust indicators */}
           <div className="flex flex-wrap justify-center items-center gap-6 pt-8">
-            {["Apostilas Atualizadas", "Suporte 24h", "Garantia de 30 dias", "Certificado Incluso"].map((item) => (
+            {["Material Atualizado FGV", "Suporte 24h", "Garantia de 30 dias", "Acesso Imediato"].map((item) => (
               <div key={item} className="flex items-center gap-2 text-muted-foreground">
                 <Check className="w-5 h-5 text-success" />
                 <span className="text-sm">{item}</span>

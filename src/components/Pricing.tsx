@@ -8,24 +8,24 @@ import pndMockup from "@/assets/pnd-mockup.png";
 
 const plans = [
   {
-    name: "PND - Combo Premium +7 BÔNUS",
+    name: "Guia Direcionado FGV - Professores Estaduais",
     subtitle: "Material completo para sua aprovação:",
     price: "27,90",
     originalPrice: "129,70",
     discount: "78% OFF",
     features: [
-      { text: "+450 Questões Comentadas e Gabaritadas", included: true },
-      { text: "Foco total nos temas mais cobrados", included: true },
-      { text: "Bônus: Combo ECA Comentado", included: true },
-      { text: "Bônus: 350 Questões Pensadores- Educação", included: true },
-      { text: "Bônus: 3 Simulados ENADE: 120 Questões", included: true },
-      { text: "Bônus: Mapas Mentais: Educação", included: true },
-      { text: "Bônus: Simulado INEP Realista", included: true },
-      { text: "Bônus: Combo LDB Essencial", included: true },
-      { text: "Bônus: Técnicas de Estudo", included: true },
+      { text: "Guia Completo FGV (+300 páginas)", included: true },
+      { text: "+350 Questões Comentadas FGV", included: true },
+      { text: "Roteiro de Estudos Direcionado (7, 15 e 30 dias)", included: true },
+      { text: "+10 Simulados Padrão FGV", included: true },
+      { text: "+120 Mapas Mentais para Revisão", included: true },
+      { text: "Bônus: Audiobook do Guia", included: true },
+      { text: "Temas mais cobrados mapeados", included: true },
+      { text: "Pegadinhas clássicas da FGV", included: true },
+      { text: "Acesso vitalício + atualizações", included: true },
     ],
     popular: true,
-    cta: "QUERO MINHA APROVAÇÃO AGORA!",
+    cta: "QUERO MEU GUIA AGORA!",
     payment: "Acesso completo imediato",
     buttonVariant: "destructive" as const,
   },
@@ -74,7 +74,7 @@ export function Pricing() {
           <div className="flex items-center justify-center gap-3 mb-6">
             <Sparkles className="w-8 h-8 text-gold animate-pulse" />
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
-              Sua Aprovação Começa Aqui
+              Garanta seu Acesso Agora
             </h2>
             <Sparkles className="w-8 h-8 text-gold animate-pulse" />
           </div>
@@ -126,11 +126,11 @@ export function Pricing() {
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-500/10 to-transparent rounded-xl blur-xl" />
                 <img 
                   src={pndMockup} 
-                  alt="Material PND Combo Premium" 
+                  alt="Guia Direcionado FGV" 
                   className="w-full h-auto object-contain relative z-10 animate-float rounded-lg"
                 />
                 <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-gradient-gold text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
-                  Material Completo + 7 Bônus
+                  Guia Completo + Bônus
                 </div>
               </div>
 

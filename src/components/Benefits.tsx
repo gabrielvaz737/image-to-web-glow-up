@@ -4,23 +4,23 @@ import { Card } from "@/components/ui/card";
 const benefits = [
   {
     icon: BookOpen,
-    title: "Apostilas Completas",
-    description: "Material atualizado com todo conteúdo do edital, questões comentadas e simulados exclusivos",
+    title: "Guia Completo FGV",
+    description: "Material direcionado com temas mais cobrados, questões comentadas e simulados padrão FGV",
   },
   {
     icon: Users,
-    title: "Mentoria Individual",
-    description: "Acompanhamento personalizado com professores especialistas em concursos públicos",
+    title: "Padrão FGV Decodificado",
+    description: "Entenda como a FGV formula questões e aprenda a linguagem da banca",
   },
   {
     icon: Award,
-    title: "93% de Aprovação",
-    description: "Nossa metodologia comprovada já aprovou mais de 5.780 alunos em concursos federais",
+    title: "97% de Satisfação",
+    description: "Nossa metodologia direcionada já ajudou mais de 5.780 professores em concursos",
   },
   {
     icon: Clock,
     title: "Acesso Vitalício",
-    description: "Estude no seu ritmo com acesso ilimitado ao conteúdo até sua aprovação",
+    description: "Estude no seu ritmo com acesso ilimitado e todas as atualizações futuras",
   },
   {
     icon: Shield,
@@ -29,8 +29,8 @@ const benefits = [
   },
   {
     icon: Zap,
-    title: "Resultados Rápidos",
-    description: "Metodologia acelerada para você conquistar sua vaga em tempo recorde",
+    title: "Estudo Direcionado",
+    description: "Roteiros prontos de 7, 15 e 30 dias focados no que realmente cai",
   },
   {
     icon: HeartHandshake,
@@ -39,8 +39,8 @@ const benefits = [
   },
   {
     icon: CheckCircle,
-    title: "Certificado Incluso",
-    description: "Receba certificado de conclusão válido em todo território nacional",
+    title: "Mapas + Audiobook",
+    description: "+120 mapas mentais e audiobook para revisar em qualquer lugar",
   },
 ];
 
@@ -50,11 +50,11 @@ export function Benefits() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-navy-dark mb-4">
-            Por que escolher a
-            <span className="text-transparent bg-clip-text bg-gradient-gold"> Conquista Concursos?</span>
+            Por que o Guia
+            <span className="text-transparent bg-clip-text bg-gradient-gold"> Direcionado FGV funciona?</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Nossa metodologia exclusiva combina tecnologia, experiência e suporte personalizado
+            Porque a FGV tem um padrão. E quando você entende o padrão, você acerta.
           </p>
         </div>
 
