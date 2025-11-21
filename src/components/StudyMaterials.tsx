@@ -1,4 +1,4 @@
-import { FileText, Video, Headphones, PenTool, BookMarked, Brain } from "lucide-react";
+import { FileText, BookOpen, Headphones, PenTool, BookMarked, Brain } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -15,44 +15,44 @@ import apostila2 from "@/assets/apostila-2.jpeg";
 const materials = [
   {
     icon: FileText,
-    title: "Apostilas Digitais",
-    count: "1.200+ páginas",
-    description: "Todo conteúdo já atualizado, direto do edital, pronto pra você estudar sem perder tempo.",
+    title: "Guia Digital Completo",
+    count: "300+ páginas",
+    description: "Todo conteúdo essencial da FGV, mapeado e organizado por relevância — estude só o que importa.",
     badge: "PDF",
   },
   {
-    icon: Video,
-    title: "Videoaulas",
-    count: "300+ horas",
-    description: "Aulas rápidas e diretas, explicadas no mesmo estilo que a banca cobra.",
-    badge: "HD",
+    icon: Brain,
+    title: "Simulados FGV",
+    count: "10+ provas",
+    description: "Simulados com o mesmo padrão de cobrança da FGV — treine com realismo total.",
+    badge: "Online",
   },
   {
     icon: PenTool,
     title: "Questões Comentadas",
-    count: "450+ questões",
-    description: "Mais de 450 questões comentadas no estilo INEP — você estuda já sabendo como a banca cobra.",
+    count: "350+ questões",
+    description: "Questões selecionadas e explicadas no estilo FGV — você aprende o padrão da banca.",
     badge: "Atualizado",
   },
   {
-    icon: Brain,
-    title: "Simulados",
-    count: "50+ provas",
-    description: "Treine com simulados iguais aos da prova real — sem surpresa no dia.",
-    badge: "Online",
+    icon: BookOpen,
+    title: "Roteiros de Estudo",
+    count: "3 roteiros",
+    description: "Planejamento pronto de 7, 15 e 30 dias — estude de forma estratégica e direcionada.",
+    badge: "Pronto",
   },
   {
     icon: Headphones,
-    title: "Audiobooks",
-    count: "100+ horas",
-    description: "Estude ouvindo no carro ou lavando a louça — aproveite cada minuto.",
+    title: "Audiobook",
+    count: "Bônus incluso",
+    description: "Ouça os principais tópicos no carro, caminhando ou lavando louça — aproveite cada minuto.",
     badge: "MP3",
   },
   {
     icon: BookMarked,
-    title: "Resumos",
-    count: "200+ mapas",
-    description: "Resumo mastigado e direto ao ponto — perfeito pra revisar na véspera.",
+    title: "Mapas Mentais",
+    count: "120+ mapas",
+    description: "Revisão rápida e visual — perfeito para o dia anterior à prova.",
     badge: "Visual",
   },
 ];
@@ -60,13 +60,13 @@ const materials = [
 const apostilas = [
   { 
     src: apostila1, 
-    title: "Conhecimentos Didático-Pedagógicos",
-    description: "Apostila completa com teorias educacionais"
+    title: "Conhecimentos Pedagógicos FGV",
+    description: "Temas mais cobrados pela banca"
   },
   { 
     src: apostila2, 
-    title: "Filosofia da Educação",
-    description: "Material aprofundado em filosofia educacional"
+    title: "Legislação Educacional",
+    description: "Material direcionado e comentado"
   },
 ];
 
@@ -114,7 +114,7 @@ export function StudyMaterials() {
         {/* Carousel de Apostilas */}
         <div>
           <h3 className="text-2xl font-semibold text-white text-center mb-6">
-            Nossas Apostilas Exclusivas (exemplos)
+            Nosso Material Direcionado (exemplos)
           </h3>
           <Carousel
             opts={{
@@ -157,7 +157,7 @@ export function StudyMaterials() {
             onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-gradient-to-r from-gold-light to-gold text-navy-dark hover:from-gold hover:to-gold-dark font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
           >
-            GARANTIR MEU ACESSO AGORA
+            QUERO MEU GUIA AGORA
           </button>
         </div>
       </div>

@@ -8,36 +8,36 @@ import { HelpCircle } from "lucide-react";
 
 const faqs = [
   {
+    question: "O material é atualizado?",
+    answer: "Sim! O Guia é sempre atualizado conforme os últimos concursos da FGV. Você tem acesso vitalício e recebe todas as atualizações sem custo adicional.",
+  },
+  {
+    question: "Serve para concursos de qual estado?",
+    answer: "O Guia Direcionado FGV serve para TODOS os concursos estaduais para professores com banca FGV, pois a banca mantém um padrão de cobrança independente do estado.",
+  },
+  {
+    question: "E se o edital ainda não saiu?",
+    answer: "Perfeito! O guia funciona justamente antes do edital para te dar vantagem. Você já começa estudando o que realmente importa antes mesmo do edital sair.",
+  },
+  {
+    question: "Tenho acesso imediato?",
+    answer: "Sim! O material completo (PDF, mapas, simulados e audiobook) chega no seu e-mail assim que o pagamento é aprovado.",
+  },
+  {
+    question: "É digital ou físico?",
+    answer: "Totalmente digital. Você recebe tudo em PDF e pode imprimir se preferir. Inclui também áudio para estudar em qualquer lugar.",
+  },
+  {
     question: "Como funciona a garantia de 30 dias?",
-    answer: "Se por qualquer motivo você não ficar satisfeito com nosso material, pode solicitar o reembolso integral em até 30 dias após a compra. Sem perguntas, sem burocracia.",
-  },
-  {
-    question: "O material é atualizado conforme o edital?",
-    answer: "Sim! Nosso time de professores acompanha todos os editais e atualiza o material imediatamente. Você sempre terá acesso à versão mais recente sem custo adicional.",
-  },
-  {
-    question: "Quanto tempo tenho acesso ao conteúdo?",
-    answer: "O acesso é vitalício! Você pode estudar no seu ritmo, revisar quantas vezes quiser e terá acesso a todas as atualizações futuras do material.",
+    answer: "Você tem 30 dias para usar o guia, estudar, fazer simulados e testar o método. Se não amar o conteúdo, devolvemos 100% do seu dinheiro sem perguntas.",
   },
   {
     question: "Posso parcelar o pagamento?",
-    answer: "Sim! Aceitamos pagamento via cartão de crédito em até 12x sem juros, PIX com 10% de desconto adicional, ou boleto bancário à vista.",
+    answer: "Sim! Aceitamos cartão de crédito com parcelamento, PIX à vista, ou boleto bancário.",
   },
   {
-    question: "As mentorias são ao vivo?",
-    answer: "Sim! Nos planos Premium e VIP você tem acesso a mentorias ao vivo semanais, além de poder agendar sessões individuais com nossos professores.",
-  },
-  {
-    question: "Vocês corrigem redações?",
-    answer: "Nos planos Premium e VIP oferecemos correção ilimitada de redações com feedback detalhado em até 48 horas. No plano Básico, você tem direito a 5 correções.",
-  },
-  {
-    question: "Como funciona o grupo de estudos?",
-    answer: "Ao se matricular, você é adicionado em grupos exclusivos no WhatsApp e Telegram, onde pode tirar dúvidas, trocar materiais e interagir com outros concurseiros.",
-  },
-  {
-    question: "Posso trocar de plano depois?",
-    answer: "Claro! Você pode fazer upgrade do seu plano a qualquer momento pagando apenas a diferença proporcional. O downgrade não é permitido.",
+    question: "Como sei que o guia realmente funciona?",
+    answer: "Analisamos centenas de provas FGV e mapeamos os temas mais cobrados, as pegadinhas clássicas e o estilo da banca. É um estudo científico do padrão FGV.",
   },
 ];
 
