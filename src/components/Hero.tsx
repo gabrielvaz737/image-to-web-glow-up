@@ -2,7 +2,7 @@ import { Check, Trophy, Calendar, Users, BookOpen, Target, Clock, Mail } from "l
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import logo from "@/assets/logo-fgv-decodificada.png";
-import apostilaOriginal from "@/assets/apostila-original.png";
+import apostilaOriginal from "@/assets/apostila-stack-mockup.png";
 import { useState, useEffect } from "react";
 
 
