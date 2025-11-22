@@ -28,7 +28,7 @@ const BackRedirect = () => {
   };
 
   const handleContinue = () => {
-    window.location.href = 'https://pay.kiwify.com.br/QFSZyjq'; // Novo checkout R$ 27,90
+    window.location.href = 'https://pay.cakto.com.br/aeswbxw_661219'; // Novo checkout R$ 27,90
   };
 
   const handleBack = () => {
