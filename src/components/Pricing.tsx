@@ -160,8 +160,8 @@ export function Pricing() {
                     R${plan.originalPrice}
                   </span>
                   {plan.discount && (
-                    <Badge className="bg-destructive text-white font-bold px-2 py-0.5 text-xs">
-                      {plan.discount}
+                    <Badge className="bg-destructive text-white font-bold px-2 py-0.5 text-xs animate-pulse">
+                      🔥 BLACK FRIDAY {plan.discount}
                     </Badge>
                   )}
                 </div>

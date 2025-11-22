@@ -1,4 +1,4 @@
-import { Check, Trophy, Calendar, Users, BookOpen, Target, Clock, Mail } from "lucide-react";
+import { Check, Trophy, Calendar, Users, BookOpen, Target, Clock, Mail, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import logo from "@/assets/logo-fgv-decodificada.png";
@@ -26,8 +26,20 @@ export function Hero() {
     scrollToSection("pricing");
   };
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-radial">
-      {/* Background decoration */}
+    <>
+      {/* Black Friday Banner */}
+      <div className="w-full bg-gradient-to-r from-gold via-gold-light to-gold py-3 sticky top-0 z-50 shadow-xl">
+        <div className="container mx-auto px-4">
+          <p className="text-center text-navy-dark font-bold text-sm md:text-lg animate-pulse flex items-center justify-center gap-2">
+            <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
+            🔥 OFERTA BLACK FRIDAY - TEMPO LIMITADO! 🔥
+            <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
+          </p>
+        </div>
+      </div>
+      
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-radial">
+        {/* Background decoration */}
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
@@ -112,8 +124,8 @@ export function Hero() {
                   De <span className="line-through text-white/60">R$ 129,70</span> por apenas{" "}
                   <span className="text-gold">R$ 27,90</span>
                 </div>
-                <Badge className="bg-destructive text-destructive-foreground px-4 py-2 text-sm font-semibold">
-                  OFERTA POR TEMPO LIMITADO
+                <Badge className="bg-destructive text-destructive-foreground px-4 py-2 text-sm font-semibold animate-pulse">
+                  🔥 BLACK FRIDAY - TEMPO LIMITADO
                 </Badge>
               </div>
             </div>
@@ -209,5 +221,6 @@ export function Hero() {
       <div className="absolute top-1/4 -right-32 w-96 h-96 bg-gradient-gold rounded-full blur-3xl opacity-20 animate-pulse-slow" />
       <div className="absolute bottom-1/4 -left-32 w-96 h-96 bg-gradient-primary rounded-full blur-3xl opacity-20 animate-pulse-slow" />
     </section>
+    </>
   );
 }
