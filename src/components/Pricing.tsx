@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
 import garantia30Dias from "@/assets/garantia-30-dias.png";
-import pndMockup from "@/assets/pnd-mockup.png";
+import apostilaStackNew from "@/assets/apostila-stack-new.png";
 
 const plans = [
   {
@@ -125,8 +125,8 @@ export function Pricing() {
               <div className="mb-6 relative px-4 max-w-[240px] mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-500/10 to-transparent rounded-xl blur-xl" />
                 <img 
-                  src={pndMockup} 
-                  alt="Guia Direcionado FGV" 
+                  src={apostilaStackNew} 
+                  alt="Apostila Nacional FGV" 
                   className="w-full h-auto object-contain relative z-10 animate-float rounded-lg"
                 />
                 <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-gradient-gold text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap">
