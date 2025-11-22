@@ -28,12 +28,14 @@ export function Hero() {
   return (
     <>
       {/* Black Friday Banner */}
-      <div className="w-full bg-gradient-to-r from-gold via-gold-light to-gold py-3 sticky top-0 z-50 shadow-xl">
-        <div className="container mx-auto px-4">
-          <p className="text-center text-navy-dark font-bold text-sm md:text-lg animate-pulse flex items-center justify-center gap-2">
-            <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
-            🔥 OFERTA BLACK FRIDAY - TEMPO LIMITADO! 🔥
-            <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
+      <div className="w-full bg-gradient-to-r from-gold via-gold-light to-gold py-2 md:py-3 sticky top-0 z-50 shadow-xl">
+        <div className="container mx-auto px-2 md:px-4">
+          <p className="text-center text-navy-dark font-bold text-xs sm:text-sm md:text-lg animate-pulse flex items-center justify-center gap-1 sm:gap-2">
+            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" />
+            <span className="whitespace-nowrap">🔥 BLACK FRIDAY</span>
+            <span className="hidden xs:inline">-</span>
+            <span className="hidden xs:inline whitespace-nowrap">TEMPO LIMITADO! 🔥</span>
+            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" />
           </p>
         </div>
       </div>
