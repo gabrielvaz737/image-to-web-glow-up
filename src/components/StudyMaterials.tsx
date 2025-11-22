@@ -11,6 +11,9 @@ import Autoplay from "embla-carousel-autoplay";
 // Import apostila images
 import apostila1 from "@/assets/apostila-1.jpeg";
 import apostila2 from "@/assets/apostila-2.jpeg";
+import apostila3 from "@/assets/apostila-3.jpeg";
+import apostila4 from "@/assets/apostila-4.jpeg";
+import apostila5 from "@/assets/apostila-5.jpeg";
 
 const materials = [
   {
@@ -60,13 +63,28 @@ const materials = [
 const apostilas = [
   { 
     src: apostila1, 
-    title: "Conhecimentos Pedagógicos FGV",
-    description: "Temas mais cobrados pela banca"
+    title: "Correlação Verbal - FGV",
+    description: "Macetes e dicas essenciais"
   },
   { 
     src: apostila2, 
-    title: "Legislação Educacional",
-    description: "Material direcionado e comentado"
+    title: "Ambiguidade e Morfologia",
+    description: "Questões comentadas"
+  },
+  { 
+    src: apostila3, 
+    title: "Intertextualidade e Paralelismo",
+    description: "Estilo FGV de cobrar"
+  },
+  { 
+    src: apostila4, 
+    title: "Interpretação de Texto FGV",
+    description: "Técnicas e métodos"
+  },
+  { 
+    src: apostila5, 
+    title: "Língua Portuguesa Completa",
+    description: "Material direcionado FGV"
   },
 ];
 
