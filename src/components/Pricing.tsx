@@ -57,7 +57,7 @@ export function Pricing() {
   const handlePurchase = (planName: string) => {
     // Usar o novo link de checkout criado para o plano único de R$ 27,90
     const checkoutLink = 'https://pay.cakto.com.br/aeswbxw_661219';
-    window.open(checkoutLink, '_blank');
+    window.location.href = checkoutLink;
   };
 
   return (
